@@ -3,7 +3,9 @@
 //* **************************************************************
 
 
+//* **************************************************************
 //* Activity 1: If-Else Statements
+//* **************************************************************
 
 //* Task 1: Write a program to check if a number is positive, negative, or zero, and log the result to the console.
 let num = 5;
@@ -30,7 +32,9 @@ else {
 // Output -> Eligible for vote
 
 
+//* **************************************************************
 //* Activity 2: Neseted If-Else Statements
+//* **************************************************************
 
 //* Task 3: Write a program to find the largest of three numbers using nested if-else statements.
 let num1 = 10;
@@ -52,7 +56,9 @@ else {
 // Output -> Num3 is greater!
 
 
+//* **************************************************************
 //* Activity 3: Switch Case
+//* **************************************************************
 
 //* Task 4: Write a program that uses a switch case to determine the day of the week based on a number (1-7) and log the day name to the console.
 let day = 5;
@@ -108,7 +114,9 @@ switch(true) {
 // Output -> You got 'C' grade
 
 
+//* **************************************************************
 //* Activity 4: Conditonal (Ternary) Operator
+//* **************************************************************
 
 //* Task 6: Write a program that uses the ternary operator to check if a number is even or odd and log the result to the console.
 let number = 15;
@@ -127,7 +135,9 @@ console.log(`Year ${year} is not a leap year`);
 // Output -> Year 2024 is a leap year
 
 
+//* **************************************************************
 //* Feature Request:
+//* **************************************************************
 
 //* Write a script that checks if a year is a leap year using multiple conditions and logs the result.
 let year1 = 2025;
@@ -142,7 +152,9 @@ else
 // Output -> Year 2025 is not a leap year
 
 
+//* **************************************************************
 //* Achievement:
+//* **************************************************************
 
 //* By the end of these activities, you will:
 //* • Implement and understand basic if-else control flow.
