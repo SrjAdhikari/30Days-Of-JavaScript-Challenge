@@ -3,6 +3,10 @@
 //* **************************************************************
 
 
+//* **************************************************************
+//* Activity 1: Variable Declaration
+//* **************************************************************
+
 //* Task 1: Declare a variable using var, assign it a number, and log the value to the console.
 var num = 123;
 console.log(`Value of num is : ${num}`);        // Output -> Value of num is : 123
@@ -13,10 +17,18 @@ let firstName = "Suraj";
 console.log(`First name is : ${firstName}`);    // Output -> First name is : Suraj
 
 
+//* **************************************************************
+//* Activity 2: Constant Declaration
+//* **************************************************************
+
 //* Task 3: Declare a variable using const, assign it a boolean value, and log the value to the console.
 const flag = true;
 console.log(`Boolean value of flag is : ${flag}`);      // Output -> Boolean value of flag is : true
 
+
+//* **************************************************************
+//* Activity 3: Data Types
+//* **************************************************************
 
 //* Task 4: Create variables of different data types (number, string, boolean, object, array) and log each variable's type using the typeof operator.
 const digit = 12345;
@@ -37,6 +49,10 @@ console.log(typeof(userInfo));          // Output -> object
 console.log(typeof(array));             // Output -> object (array)
 
 
+//* **************************************************************
+//* Activity 4: Reassigning Variables
+//* **************************************************************
+
 //* Task 5: Declare a variable using let, assign it an initial value, reassign a new value, and log both values to the console.
 let fullName = 'Suraj Adhikari';
 console.log(`Initial value is : ${fullName}`);                  // Output -> Initial value is : Suraj Adhikari
@@ -45,12 +61,20 @@ fullName = 'Srj Adhikari';
 console.log(`Reassign value is : ${fullName}`);                  // Output -> Reassign value is : Srj Adhikari
 
 
+//* **************************************************************
+//* Activity 5: Understanding const
+//* **************************************************************
+
 //* Task 6: Try reassigning a variable declared with const and observe the error.
 const age = 25;
 age = 20;           // Output -> TypeError: Assignment to constant variable. Can't change the value of const variable after it's been assigned. Once you declare a variable with const, its value is fixed for the entire scope where it's defined.
 
 console.log(`Age is : ${age}`);     
 
+
+//* **************************************************************
+//* Feature Request:
+//* **************************************************************
 
 //* Feature 1: Write a script that declares variables of different data types and logs both the value and type of each variable to the console.
 const value = 2000;
@@ -71,7 +95,7 @@ console.log(person);                                                        // O
 console.log(`Value is : ${numArray}, Type is : ${typeof(numArray)}`);       // Output -> Value is : 1,2,5,7,9, Type is : object
 
 
-//* Feature 1: Create a script that demonstrates the difference in behavior between let and const when it comes to reassignment.
+//* Feature 2: Create a script that demonstrates the difference in behavior between let and const when it comes to reassignment.
 let price = 100;
 console.log(`Initial price is : ${price}`);     // Output -> Initial price is : 100
 
@@ -88,7 +112,10 @@ cost = 200;                                     // TypeError: Assignment to cons
 console.log(`Modify cost is : ${cost}`);
 
 
+//* **************************************************************
 //* Achievement:
+//* **************************************************************
+
 //* By the end of these activities, you will:
 //* • Know how to declare variables using var, let, and const.
 //* • Understand the different data types in JavaScript.
