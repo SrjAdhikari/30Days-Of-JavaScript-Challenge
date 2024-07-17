@@ -3,7 +3,9 @@
 //* **************************************************************
 
 
+//* **************************************************************
 //* Activity 1: For Loop
+//* **************************************************************
 
 //* Task 1: Write a program to print numbers from 1 to 10 using a for loop.
 console.log(`Printing numbers from 1 to 10`);
@@ -21,7 +23,9 @@ for(let num = 1; num <= 10; num++){
 console.log(`\n`);
 
 
+//* **************************************************************
 //* Activity 2: While Loop
+//* **************************************************************
 
 //* Task 3: Write a program to calculate the sum of numbers from 1 to 10 using a while loop.
 let sum = 0;
@@ -46,7 +50,9 @@ while(index >= 1) {
 console.log(`\n`);
 
 
+//* **************************************************************
 //* Activity 3: Do...While Loop
+//* **************************************************************
 
 //* Task 5: Write a program to print numbers from 1 to 5 using a do...while loop.
 console.log(`Printing numbers from 1 to 5`);
@@ -69,7 +75,9 @@ console.log(`Factorial of 5 is : ${factorial}`);        // Output -> Factorial o
 console.log(`\n`);
 
 
+//* **************************************************************
 //* Activity 4: Nested Loop
+//* **************************************************************
 
 //* Task 7: Write a program to print a pattern using nested for loops:
 // *
@@ -108,7 +116,9 @@ for(let num = 1; num <= 10; num++) {
 console.log(`\n`);
 
 
+//* **************************************************************
 //* Achievement:
+//* **************************************************************
 
 //* By the end of these activities, you will:
 //* • Understand and use for loops to iterate over a sequence of numbers.
