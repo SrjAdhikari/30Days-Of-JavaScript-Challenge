@@ -3,7 +3,9 @@
 //* **************************************************************
 
 
+//* **************************************************************
 //* Activity 1: Arithmetic Operations
+//* **************************************************************
 
 //* Task 1: Write a program to add two numbers and log the result to the console.
 const firstNum = 10;
@@ -40,7 +42,9 @@ const remainder = dividend1 % divisor1;
 console.log(`Remainder is : ${remainder}`);         // Output -> Remainder is : 3   
 
 
+//* **************************************************************
 //* Activity 2: Assignment Operators
+//* **************************************************************
 
 //* Task 6: Use the += operator to add a number to a variable and log the result to the console.
 let num1 = 15;
@@ -54,7 +58,9 @@ value -= 45;                                        // value = 50 - 45
 console.log(`Result is : ${value}`);                // Output -> Result is : 5
 
 
+//* **************************************************************
 //* Activity 3: Comparison Operators
+//* **************************************************************
 
 //* Task 8: Write a program to compare two numbers using > and < and log the result to the console.
 const price1 = 100;
@@ -89,7 +95,9 @@ console.log(`Result is : ${value1 == value2}`);     // Output -> Result is : fal
 console.log(`Result is : ${value1 === value2}`);    // Output -> Result is : false
 
 
+//* **************************************************************
 //* Activity 4: Logical Operators
+//* **************************************************************
 
 //* Task 11: Write a program that uses the && operator to combine two conditions and log the result to the console.
 const condition1 = true;
@@ -111,7 +119,9 @@ const isFalse = true;
 console.log(`Result is : ${!isFalse}`);                     // Output -> Result is : false
 
 
+//* **************************************************************
 //* Activity 5: Ternary Operator
+//* **************************************************************
 
 //* Task 14: Write a program that uses the ternary operator to check if a number is positive or negative and log the result to the console.
 const positive = 10;
@@ -123,7 +133,9 @@ answer = negative < 0 ? 'Negative' : 'Positive';
 console.log(`Number is : ${answer}`);                       // Output -> Number is : Negative
 
 
+//* **************************************************************
 //* Feature Requests:
+//* **************************************************************
 
 //* 1: Write a script that performs basic arithmetic operations (addition, subtraction, multiplication, division, remainder) on two numbers and logs the results.
 let var1 = 100;
@@ -162,7 +174,9 @@ count = 15;
 console.log(`Result : ${count >= 0 ? 'Number is positive' : 'Number is negative'}`);    // Output -> Result : Number is positive
 
 
+//* **************************************************************
 //* Achievement:
+//* **************************************************************
 
 //* By the end of these activities, you will:
 //* • Understand and use arithmetic operators to perform basic calculations.
