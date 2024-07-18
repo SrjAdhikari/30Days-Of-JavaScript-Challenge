@@ -157,9 +157,116 @@ console.log(greeting('Suraj'));                     // Output -> Hello! Suraj, N
 //* **************************************************************
 
 //* Task 9: Write a higher-order function that takes a function and a number, and calls the function that many times.
+function callMyname() {
+    console.log(`Suraj`);
+}
+
+// Define a higher-order function that takes a function and a number as arguments
+function highOrderFunction(func, num){
+    for(let i = 0; i < num; i++) {
+        func();
+    }
+}
+
+// Call the higher-order function, passing the callMyName function as an argument
+highOrderFunction(callMyname, 5);       // This will call callMyname 5 times
 
 
 //* Task 10: Write a higher-order function that takes two functions and a value, applies the first function to the value, and then applies the second function to the result.
+
+// Define an arrow function that adds 5 to a number and return their result.
+const add = (num) => num + 5;
+
+// Define an arrow function that multiplies a number by 3 and return their result.
+const multiply = (num) => num * 3;
+
+// Define a higher-order function that takes two functions and a number as arguments
+function highOrderFunction(fun1, fun2, num) {
+    const result1 = fun1(num);          // Apply the first function to the number
+    const result2 = fun2(result1);      // Apply the second function to the result of the first function
+    return result2;                     // Return the final result
+
+    // Shorthand of above code : return fun2(fun1(num));
+}
+// Call the higher-order function, passing the add and multiply functions and a number
+const output = highOrderFunction(add, multiply, 10);
+console.log(output);                    // Output -> 45 (since (10 + 5) * 3 = 45)
+
+
+//* **************************************************************
+//* Feature Request:
+//* **************************************************************
+
+//* Feature 1: Write a script that includes a function to check if a number is even or odd and logs the result.
+//* Method 1: Using Normal Function
+function checkOddEven(num) {
+    if(num % 2 === 0)
+        console.log(`${num} is even number`);
+    else 
+        console.log(`${num} is odd number`);
+}
+// Function call
+checkOddEven(20);       // Output -> 20 is even number
+checkOddEven(15);       // Output -> 15 is odd number
+
+
+//* Method 2: Using Arrow Function
+const findOddEven = (num) => {
+    if(num % 2 === 0)
+        console.log(`${num} is even number`);
+    else 
+        console.log(`${num} is odd number`);
+}
+// Function call
+findOddEven(5);         // Output -> 5 is odd number
+findOddEven(50);        // Output -> 50 is even number
+
+
+//* Method 3: Also Using Arrow Function
+const findEvenOdd = (num) => num % 2 === 0 ? `${num} is even number` : `${num} is odd number`;      // Implicit (Direct) Return
+// Function call
+console.log(findEvenOdd(13));       // Output -> 13 is odd number       
+console.log(findEvenOdd(30));       // Output -> 30 is even number
+
+
+//* Feature 2: Create a script that includes a function to calculate the square of a number and returns the result.
+//* Method 1: Using Normal Function
+function calculateSquare(num) {
+    return num * num;
+}
+// Function call
+const square = calculateSquare(5);
+console.log(`5 Square is : ${square}`);     // Output -> 5 Square is : 25   
+
+
+//* Method 2: Using Arrow Function
+const findSquare = (num) => {
+    return num * num;
+}
+// Function call
+const ans = findSquare(11);
+console.log(`11 Square is : ${ans}`);     // Output -> 11 Square is : 121
+
+
+//* Method 3: Also Using Arrow Function
+const calcSquare = (num) => num * num;
+// Function call
+console.log(calcSquare(20));                // Output -> 400
+
+
+//* Feature 3: Write a script that includes a higher-order function to apply a given function multiple times.
+// Define an arrow function 'message' that logs a message to the console
+const message = (value) => console.log(`${value}, everyone!`);
+
+// Define a higher-order function 'highOrderFunction' that takes a function 'func' and a number 'num' as arguments
+function highOrderFunction(func, num) {
+    for(let i = 0; i < num; i++) {
+        func('Hello');          // Call the function 'func' with the argument 'Hello'
+    }
+}
+
+// Call 'highOrderFunction' with 'message' as the function argument and 5 as the number of times to call it
+highOrderFunction(message, 5);
 
 
 //* **************************************************************
