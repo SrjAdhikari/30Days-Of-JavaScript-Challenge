@@ -183,4 +183,4 @@ console.log(`Result : ${count >= 0 ? 'Number is positive' : 'Number is negative'
 //* • Use assignment operators to modify variable values.
 //* • Compare values using comparison operators.
 //* • Combine conditions using logical operators.
-//* Use the ternary operator for concise conditional expressions.
+//* • Use the ternary operator for concise conditional expressions.
