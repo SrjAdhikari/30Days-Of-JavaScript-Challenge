@@ -149,7 +149,7 @@ const instructor = "Hitesh Sir";
 
 const myGreeting = `Hello! Everyone, I am ${myName}
 currently I am learning ${course} from ${platform}
-with amazing instrucor ${instructor}.`
+with amazing instrucor ${instructor}.`;
 
 console.log(myGreeting);
 
