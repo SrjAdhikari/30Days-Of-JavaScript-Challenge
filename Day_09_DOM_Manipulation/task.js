@@ -70,9 +70,9 @@ image.setAttribute("src", "new-job.jpg");                       // Change the sr
 //* Task 8: Add and remove a CSS class to/from an HTML element.
 //* Add element to an HTML element:
 const addButton = document.querySelector("#addButton");
-addButton.setAttribute("class", "addClass");
-// addButton.classList.add("addClass");
-// addButton.className = "addClass";
+addButton.setAttribute("class", "addClass");                    // It will overwrite any existing classes on the element.
+// addButton.classList.add("addClass");                         // It does not remove existing classes; it simply appends the new class.
+// addButton.className = "addClass";                            // Similar to setAttribute, this will overwrite any existing classes on the element with the specified class.
 
 //* Remove element from an HTML element:
 const removeButton = document.querySelector("#removeBtn");
