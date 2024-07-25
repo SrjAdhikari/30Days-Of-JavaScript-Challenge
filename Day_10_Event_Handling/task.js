@@ -107,3 +107,58 @@ form.addEventListener("submit", (evt) => {                      // Add a submit 
     const lastName = evt.target.elements.lastName.value;        // Access the value of the 'lastName' input field
     console.log(`First Name : ${firstName}, Last Name : ${lastName}`);
 });
+
+
+//* Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+const dropdown = document.querySelector("#dropDown");           // Select the dropdown element with the id 'dropDown'
+const p = document.querySelector("#displayValue");              // Select the paragraph element with the id 'displayValue'
+
+//* Method 1:
+dropdown.addEventListener("change", () => {                     // Add a 'change' event listener to the dropdown element
+    p.innerText = `Selected Item : ${dropdown.value}`;          // Update the paragraph text with the selected value from the dropdown
+});
+
+//* Method 2:
+dropdown.addEventListener("change", (evt) => {                  // Add another 'change' event listener to the dropdown element
+    p.innerText = `Selected Item : ${evt.target.value}`;        // Update the paragraph text with the selected value from the event target
+});
+
+
+//* **************************************************************
+//* Activity 5: Event Delegation
+//* **************************************************************
+
+//* Event delegation is a technique in JavaScript where we attach a single event listener to a parent element instead of multiple event listeners to individual child elements. The parent element can then handle events that bubble up from child elements. 
+
+//* Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
+const list = document.querySelector("#myList");                 // Select the list element by its ID
+
+list.addEventListener("click", (evt) => {                       // Add a click event listener to the list using event delegation
+    if(evt.target.tagName  === "LI") {                          // Check if the clicked element is a list item (li)
+        console.log(`Clicked item : ${evt.target.innerText}`);  // Log the text content of the clicked list item
+    }
+});
+
+
+//* Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+const listItem = document.querySelector("#listItem");           // Select the list element by its ID
+const addButton = document.querySelector("#addItemButton");     // Select the button to add new items
+console.log(listItem.children.length)                           // Log the number of child elements in the list before add new item -> Give the count of child element
+
+addButton.addEventListener("click", (evt) => {                  // Add a click event listener to the button to dynamically add new items
+    const newItem = document.createElement("li");               // Create a new list item element
+    newItem.innerText = `Item ${listItem.children.length + 1}`; // Set the text content for the new list item
+    listItem.appendChild(newItem);                              // Append the new list item to the list
+    console.log(listItem.children.length)                       // Log the number of child elements in the list after add new item
+});
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Add and handle basic events like click, double-click, mouseover, mouseout, keydown, and keyup.
+//* • Understand and handle form events.
+//* • Implement event delegation to manage events on dynamically added elements.
+//* • Make web pages interactive by responding to various user actions.
