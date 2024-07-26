@@ -10,17 +10,17 @@
 
 ## Topics Covered
 
-1. **Variables and Datatypes**
-2. **Operators**
-3. **Control Structure**
-4. **Loops**
-5. **Functions**
-6. **Arrays**
-7. **Objects**
-8. **ES6 Features**
-9. **DOM Manipulation**
-10. **Event Handling**
-11. **Promises and Async Await**
+1. **[Variables and Datatypes](./Day_01_Variables_And_Data_Types)**
+2. **[Operators](./Day_02_Operators)**
+3. **[Control Structure](./Day_03_Control_Structures)**
+4. **[Loops](./Day_04_Loops)**
+5. **[Functions](./Day_05_Functions)**
+6. **[Arrays](./Day_06_Arrays)**
+7. **[Objects](./Day_07_Objects)**
+8. **[ES6 Features](./Day_08_ES6_Features)**
+9. **[DOM Manipulation](./Day_09_DOM_Manipulation)**
+10. **[Event Handling](./Day_10_Event_Handling)**
+11. **[Promises and Async Await](./Day_11_Promises_And_Async_Await)**
 12. **Error handling**
 13. **Modules**
 14. **Classes**
