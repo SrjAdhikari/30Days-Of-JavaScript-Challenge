@@ -212,7 +212,7 @@ To start the challenge, clone this repository and follow along with the daily ta
 
 ## Resources
    - [Chai Aur Code YouTube Channel](https://www.youtube.com/@chaiaurcode)
-   - [Hitesh Choudhary's LinkedIn]()
+   - [Hitesh Choudhary's LinkedIn](https://www.linkedin.com/in/hiteshchoudhary/)
    - [Chai Aur Code Official Website](https://courses.chaicode.com/learn)
 
 ## Contributions
