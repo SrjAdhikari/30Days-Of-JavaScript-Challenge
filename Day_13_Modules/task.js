@@ -24,3 +24,27 @@ console.log(`The sum of ${num1} and ${num2} is: ${result}`);
 import { person } from "./utility.js";
 console.log(`My name is ${person.getFullName()}.`);
 console.log(`My current age is ${person.age}.`);
+
+
+//* **************************************************************
+//* Activity 2: Named and Default Exports
+//* **************************************************************
+
+//* Task 3: Create a module that exports multiple functions using named exports. Import and use these functions in another script.
+
+// Import specific functions from the 'utility.js' module
+import { addition, subtraction, multiplication, division } from "./utility.js";
+
+const number1 = 20;
+const number2 = 0;
+
+console.log(`Addition of ${number1} and ${number2} is : ${addition(number1, number2)}`);
+console.log(`Difference of ${number1} and ${number2} is : ${subtraction(number1, number2)}`);
+console.log(`Product of ${number1} and ${number2} is : ${multiplication(number1, number2)}`);
+
+// Use a try-catch block to handle any potential errors in division
+try {
+    console.log(`Division of ${number1} and ${number2} is : ${division(number1, number2)}`);
+} catch (error) {
+    console.log(error.message);
+}

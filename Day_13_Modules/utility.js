@@ -19,3 +19,27 @@ export const person = {
         return `${this.firstName} ${this.lastName}`;
     }
 }
+
+
+//* Task 3: Create a module that exports multiple functions using named exports. Import and use these functions in another script.
+export function addition (num1, num2) {
+    return num1 + num2;
+}
+
+export function subtraction (num1, num2) {
+    if(num1 > num2)
+        return num1 - num2;
+    else
+        return num2 - num1;
+}
+
+export function multiplication (num1, num2) {
+    return num1 * num2;
+}
+
+export function division (num1, num2) {
+    if(num2 !== 0)
+        return num1 / num2;
+    else
+        throw new Error("Can't divide by zero!");
+}
