@@ -59,3 +59,25 @@ const value1 = 15;
 const value2 = 7;
 
 console.log(`Remainder of ${value1} divided by ${value2} is : ${modulus(value1, value2)}`);
+
+
+//* **************************************************************
+//* Activity 3: Importing Entire Module
+//* **************************************************************
+
+//* Task 5: Create a module that exports multiple constants and functions. Import the entire module as an object in another script and use its properties.
+
+// Import the entire module as an object
+import * as utils from "./utility.js";
+
+console.log(`Value of PI : ${utils.PI}`);
+console.log(`Value of GRAVITY : ${utils.GRAVITY}`);
+
+const area = utils.calculateArea(5);
+console.log(`Area : ${area}`);
+
+const volume = utils.calculateVolume(3, 5);
+console.log(`Volume : ${volume}`);
+
+const circumference = utils.calculateCircumference(7);
+console.log(`Circumference : ${circumference}`);

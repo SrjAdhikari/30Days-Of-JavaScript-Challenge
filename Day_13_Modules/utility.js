@@ -49,3 +49,20 @@ export function division (num1, num2) {
 export default function modulus(num1, num2) {
     return num1 % num2;
 }
+
+
+//* Task 5: Create a module that exports multiple constants and functions. Import the entire module as an object in another script and use its properties.
+export const PI = 3.14159;
+export const GRAVITY = 9.81;
+
+export function calculateArea(radius) {
+    return PI * radius * radius;
+}
+
+export function calculateVolume(radius, height) {
+    return PI * radius * radius * height;
+}
+
+export function calculateCircumference(radius) {
+    return 2 * PI * radius;
+}
