@@ -1,0 +1,13 @@
+{
+  "name": "30-days-of-javascript-challenge",
+  "version": "1.0.0",
+  "description": "*Welcome to the [30 Days Of JavaScript ](https://courses.chaicode.com/learn/batch/30-days-of-Javascript-challenge), hosted by [Hitesh Choudhary](https://www.linkedin.com/in/hiteshchoudhary/) Founder of [ChaiAurCode](https://courses.chaicode.com/learn). This challenge aims to transform your JavaScript skills by covering core subjects, related questions, data structures and algorithms (DSA), and hands-on project creation.*",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
