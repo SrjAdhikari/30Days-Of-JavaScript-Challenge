@@ -81,3 +81,25 @@ console.log(`Volume : ${volume}`);
 
 const circumference = utils.calculateCircumference(7);
 console.log(`Circumference : ${circumference}`);
+
+
+//* **************************************************************
+//* Activity 4: Using Third-Party Modules
+//* **************************************************************
+
+//* Task 6: Install a third-party module (e.g., lodash) using npm. Import and use a function from this module in a script.
+
+// Import a specific function from lodash
+import _ from "lodash";
+
+const alphabet = ["a", "b", "c", "d", "e"];
+const numbers = [1, 2, 3, 4, 5];
+const size = 2;
+
+const chunks = _.chunk(alphabet, size);         // Use Lodash's _.chunk function to Split the array into chunks of the specified size
+const sum = _.sum(numbers);                     // Use Lodash's _.sum function to calculate the sum of the numbers
+
+console.log(`Original Array : ${alphabet}`);
+console.log(`Modified Array : ${JSON.stringify(chunks)}`);      // Output -> Modified Array : [["a","b"],["c","d"],["e"]]
+
+console.log(`Sum : ${sum}`);
