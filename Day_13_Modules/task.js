@@ -48,3 +48,14 @@ try {
 } catch (error) {
     console.log(error.message);
 }
+
+
+//* Task 4: Create a module that exports a single function using default export. Import and use this function in another script.
+
+// Import the default exported function from the 'greet.js' module
+import modulus from "./utility.js";
+
+const value1 = 15;
+const value2 = 7;
+
+console.log(`Remainder of ${value1} divided by ${value2} is : ${modulus(value1, value2)}`);
