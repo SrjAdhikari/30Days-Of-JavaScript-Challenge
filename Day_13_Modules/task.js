@@ -103,3 +103,36 @@ console.log(`Original Array : ${alphabet}`);
 console.log(`Modified Array : ${JSON.stringify(chunks)}`);      // Output -> Modified Array : [["a","b"],["c","d"],["e"]]
 
 console.log(`Sum : ${sum}`);
+
+
+//* Task 7: Install a third-party module (e.g.. wins) using npm. Import and use this module to make a network request in a script.
+
+// Import the axios module
+import axios from 'axios';
+
+//* 1:
+async function fetchData() {
+    try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+        // Extract the data from the response
+        const data = response.data;
+        console.log('Data :', data);
+    } catch (error) {
+        // Handle any errors that occur during the request
+        console.error('Error :', error);
+    }
+}
+fetchData();
+
+
+//* 2:
+const url = 'https://jsonplaceholder.typicode.com/posts/1';
+axios.get(url)
+    .then(response => {
+        // Handle success
+        console.log('Data : ', response.data);
+    })
+    .catch(error => {
+        // Handle error
+        console.error('Error:', error.message);
+    });
