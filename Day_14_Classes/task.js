@@ -211,3 +211,52 @@ console.log(person5.fullName);
 
 // Log the greeting message
 console.log(person5.greet())
+
+
+//* Task 8: Add a setter method to the Person class to update the name properties (firstName and LastName). Update the name using the setter and log the updated full name.
+
+// Defines a Person object with properties for firstName and lastName, and method greet and fullName.
+class Person5 {
+    // Constructor to initialize the properties
+    constructor (firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    // Getter method to return the full name
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    // Setter method to update the name properties
+    set fullName(newFullName) {
+        // Split the new full name into first name and last name based on space
+        const [newFirstName, newLastName] = newFullName.split(" ");
+
+        // Update the firstName property with the new first name
+        this.firstName = newFirstName;
+
+        // Update the lastName property with the new last name
+        this.lastName = newLastName;
+    }
+
+    // Method to return a greeting message
+    greet() {
+        return `Hello, my name is ${this.fullName}.`;
+    }
+}
+
+// Create instances of the Person class
+const person6 = new Person5("Suraj", "Adhikari");
+
+// Log the initial full name
+console.log(`Initial full name : ${person6.fullName}`);
+
+// Update the name using the setter
+person6.fullName = "Srj Adhikari";
+
+// Log the updated full name
+console.log(`Updated full name : ${person6.fullName}`);
+
+// Log the greeting message with the updated name
+console.log(person6.greet());
