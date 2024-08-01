@@ -176,3 +176,38 @@ const student4 = new Student2("SRJ", 26, "S12045");
 // Log the total number of students after all instances are created
 // Call the static method without creating an instance of the class
 console.log(`Total number of students : ${Student2.getStudentCount()}`);
+
+
+//* **************************************************************
+//* Activity 4: Getters and Setters
+//* **************************************************************
+
+//* Task 7: Add a getter method to the Person class to return the full name (assume a firstName and LastName property). Create an instance and log the full name using the getter.
+
+// Defines a Person object with properties for firstName and lastName, and  method greet and fullName.
+class Person4 {
+    // Constructor to initialize the properties
+    constructor (firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    // Getter method to return the full name
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    // Method to return a greeting message
+    greet() {
+        return `Hello, my name is ${this.fullName}.`;
+    }
+}
+
+// Create instances of the Person class
+const person5 = new Person4("Suraj", "Adhikari");
+
+// Log the full name using the getter
+console.log(person5.fullName);
+
+// Log the greeting message
+console.log(person5.greet())
