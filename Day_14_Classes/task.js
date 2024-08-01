@@ -30,7 +30,7 @@ console.log(person.greet());
 //* Task 2: Add a method to the Person class that updates the age property and logs the updated age.
 
 // Defines a Person object with properties for name and age, and a method to greet others.
-class Person1 {
+class Person {
     // Constructor to initialize the properties
     constructor (name, age) {
         this.name = name;
@@ -50,9 +50,9 @@ class Person1 {
 }
 
 // Create an instance of the Person class
-const person1 = new Person1("Suraj", 25);
-console.log(person1.greet());
-person1.updateAge(26);
+const person = new Person("Suraj", 25);
+console.log(person.greet());
+person.updateAge(26);
 
 
 //* **************************************************************
@@ -61,8 +61,8 @@ person1.updateAge(26);
 
 //* Task 3: Define a class Student that extends the Person class. Add a property studentID and a method to return the student ID. Create an instance of the Student class and log the student ID.
 
-// Defines a Person2 object with properties for name and age, and a method to greet others.
-class Person2 {
+// Defines a Person object with properties for name and age, and a method to greet others.
+class Person {
     // Constructor to initialize the properties
     constructor (name, age) {
         this.name = name;
@@ -76,7 +76,7 @@ class Person2 {
 }
 
 // Define the Student class that extends Person
-class Student extends Person2 {
+class Student extends Person {
     // Constructor to initialize properties of both Person and Student
     constructor(name, age, studentID) {
         super(name, age);               // Call the constructor of the parent class
@@ -97,7 +97,7 @@ console.log(student.getStudentID());
 //* Task 4: Override the greeting method in the Student class to include the student ID in the message. Log the overridden greeting message.
 
 // Define the Student class that extends Person
-class Student1 extends Person {
+class Student extends Person {
     // Constructor to initialize properties of both Person and Student
     constructor(name, age, studentID) {
         super(name, age);               // Call the constructor of the parent class
@@ -116,8 +116,8 @@ class Student1 extends Person {
 }
 
 // Create an instance of the Student class
-const student1 = new Student1("Srj", 26, "S13579");
-console.log(student1.greet());
+const student = new Student("Srj", 26, "S13579");
+console.log(student.greet());
 
 
 //* **************************************************************
@@ -127,7 +127,7 @@ console.log(student1.greet());
 //* Task 5: Add a static method to the Person class that returns a generic greeting message. Call this static method without creating an instance of the class and log the message.
 
 // Defines a Person object with properties for name and age, and a method to greet others.
-class Person3 {
+class Person {
     // Constructor to initialize the properties
     constructor (name, age) {
         this.name = name;
@@ -145,13 +145,13 @@ class Person3 {
 }
 
 // Call the static method without creating an instance of the class
-console.log(Person3.genericGreeting());
+console.log(Person.genericGreeting());
 
 
 //* Task 6: Add a static property to the Student class to keep track of the number of students created. Increment this property in the constructor and log the total number of students.
 
 // Define the Student class that extends Person
-class Student2 extends Person {
+class Student extends Person {
     // Static property to keep track of the number of students created
     static studentCount = 0;
 
@@ -159,23 +159,23 @@ class Student2 extends Person {
     constructor(name, age, studentID) {
         super(name, age);               // Call the constructor of the parent class
         this.studentID = studentID;     // Initialize the studentID property
-        Student2.studentCount++;        // Increment the student count
+        Student.studentCount++;        // Increment the student count
     }
 
     // Static method to get the student count
     static getStudentCount() {
-        return Student2.studentCount;
+        return Student.studentCount;
     }
 }
 
 // Create instances of the Student class
-const student2 = new Student2("Suraj", 26, "S12345");
-const student3 = new Student2("Srj", 26, "S12349");
-const student4 = new Student2("SRJ", 26, "S12045");
+const student2 = new Student("Suraj", 26, "S12345");
+const student3 = new Student("Srj", 26, "S12349");
+const student4 = new Student("SRJ", 26, "S12045");
 
 // Log the total number of students after all instances are created
 // Call the static method without creating an instance of the class
-console.log(`Total number of students : ${Student2.getStudentCount()}`);
+console.log(`Total number of students : ${Student.getStudentCount()}`);
 
 
 //* **************************************************************
@@ -185,7 +185,7 @@ console.log(`Total number of students : ${Student2.getStudentCount()}`);
 //* Task 7: Add a getter method to the Person class to return the full name (assume a firstName and LastName property). Create an instance and log the full name using the getter.
 
 // Defines a Person object with properties for firstName and lastName, and  method greet and fullName.
-class Person4 {
+class Person {
     // Constructor to initialize the properties
     constructor (firstName, lastName) {
         this.firstName = firstName;
@@ -204,19 +204,19 @@ class Person4 {
 }
 
 // Create instances of the Person class
-const person5 = new Person4("Suraj", "Adhikari");
+const person = new Person("Suraj", "Adhikari");
 
 // Log the full name using the getter
-console.log(person5.fullName);
+console.log(person.fullName);
 
 // Log the greeting message
-console.log(person5.greet())
+console.log(person.greet())
 
 
 //* Task 8: Add a setter method to the Person class to update the name properties (firstName and LastName). Update the name using the setter and log the updated full name.
 
 // Defines a Person object with properties for firstName and lastName, and method greet and fullName.
-class Person5 {
+class Person {
     // Constructor to initialize the properties
     constructor (firstName, lastName) {
         this.firstName = firstName;
@@ -247,19 +247,19 @@ class Person5 {
 }
 
 // Create instances of the Person class
-const person6 = new Person5("Suraj", "Adhikari");
+const person = new Person("Suraj", "Adhikari");
 
 // Log the initial full name
-console.log(`Initial full name : ${person6.fullName}`);
+console.log(`Initial full name : ${person.fullName}`);
 
 // Update the name using the setter
-person6.fullName = "Srj Adhikari";
+person.fullName = "Srj Adhikari";
 
 // Log the updated full name
-console.log(`Updated full name : ${person6.fullName}`);
+console.log(`Updated full name : ${person.fullName}`);
 
 // Log the greeting message with the updated name
-console.log(person6.greet());
+console.log(person.greet());
 
 
 //* **************************************************************
@@ -268,6 +268,7 @@ console.log(person6.greet());
 
 //* Task 9: Define a class Account with private fields for balance and a method to deposit and withdraw money. Ensure that the balance can only be updated through these methods.
 
+// Defines a Account object
 class Account {
     // Private field for balance
     #balance;
@@ -304,6 +305,9 @@ class Account {
         return this.#balance;
     }
 }
+
+
+//* Task 10: Create an instance of the Account class and test the deposit and withdraw methods, logging the balance after each operation.
 
 // Create instances of the Account class with a balance of 1000
 const myAccount = new Account(1000);
