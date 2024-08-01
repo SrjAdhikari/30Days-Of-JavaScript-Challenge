@@ -92,3 +92,29 @@ class Student extends Person2 {
 // Create an instance of the Student class
 const student = new Student("Suraj", 25, "S12345");
 console.log(student.getStudentID());
+
+
+//* Task 4: Override the greeting method in the Student class to include the student ID in the message. Log the overridden greeting message.
+
+// Define the Student class that extends Person
+class Student1 extends Person {
+    // Constructor to initialize properties of both Person and Student
+    constructor(name, age, studentID) {
+        super(name, age);               // Call the constructor of the parent class
+        this.studentID = studentID;     // Initialize the studentID property
+    }
+
+    // Method to return the student ID
+    getStudentID() {
+        return `Student ID : ${this.studentID}`;
+    }
+
+    // Override the greet method to include student ID
+    greet() {
+        return `Hello, my name is ${this.name}, I am ${this.age} years old, and my student ID is ${this.studentID}.`;
+    }
+}
+
+// Create an instance of the Student class
+const student1 = new Student1("Srj", 26, "S13579");
+console.log(student1.greet());
