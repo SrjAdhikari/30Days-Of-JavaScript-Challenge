@@ -118,3 +118,31 @@ class Student1 extends Person {
 // Create an instance of the Student class
 const student1 = new Student1("Srj", 26, "S13579");
 console.log(student1.greet());
+
+
+//* **************************************************************
+//* Activity 3: Static Methods and Properties
+//* **************************************************************
+
+//* Task 5: Add a static method to the Person class that returns a generic greeting message. Call this static method without creating an instance of the class and log the message.
+
+// Defines a Person object with properties for name and age, and a method to greet others.
+class Person3 {
+    // Constructor to initialize the properties
+    constructor (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    // Method to return a greeting message
+    greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+
+    // Static method to return a generic greeting message
+    static genericGreeting() {
+        return `Hello! This is a message from static method.`;
+    }
+}
+
+// Call the static method without creating an instance of the class
+console.log(Person3.genericGreeting());
