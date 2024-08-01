@@ -260,3 +260,57 @@ console.log(`Updated full name : ${person6.fullName}`);
 
 // Log the greeting message with the updated name
 console.log(person6.greet());
+
+
+//* **************************************************************
+//* Activity 5: Private Fields (Optional)
+//* **************************************************************
+
+//* Task 9: Define a class Account with private fields for balance and a method to deposit and withdraw money. Ensure that the balance can only be updated through these methods.
+
+class Account {
+    // Private field for balance
+    #balance;
+
+    // Constructor to initialize the balance
+    constructor(initialBalance) {
+        // Ensure the initial balance is non-negative
+        if(initialBalance < 0)
+            throw new Error(`Balance can not be negative.`)
+        else
+            this.#balance = initialBalance;
+    }
+
+    // Method to deposit money into the account
+    deposit(amount) {
+        if(amount <= 0)
+            throw new Error(`Deposit amount must be positive`);
+        else
+            this.#balance += amount;
+    }
+
+    // Method to withdraw money from the account
+    withdraw(amount) {
+        if(amount <= 0)
+            throw new Error(`Withdrawal  amount must be positive`);
+        else if(amount > this.#balance)
+            throw new Error(`Insufficient balance`);
+        else
+            this.#balance -= amount;
+    }
+
+    // Method to get the current balance
+    getbalance() {
+        return this.#balance;
+    }
+}
+
+// Create instances of the Account class with a balance of 1000
+const myAccount = new Account(1000);
+console.log(`Initial balance : ${myAccount.getbalance()}`);
+
+myAccount.deposit(500);
+console.log(`Balance after deposit : ${myAccount.getbalance()}`);
+
+myAccount.withdraw(700);
+console.log(`Balance after withdrawal : ${myAccount.getbalance()}`);
