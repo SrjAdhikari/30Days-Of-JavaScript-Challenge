@@ -318,3 +318,15 @@ console.log(`Balance after deposit : ${myAccount.getbalance()}`);
 
 myAccount.withdraw(700);
 console.log(`Balance after withdrawal : ${myAccount.getbalance()}`);
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Define and use classes with properties and methods.
+//* • Implement inheritance to extend classes.
+//* • Utilize static methods and properties.
+//* • Apply getters and setters for encapsulation.
+//* • Understand and use private fields in classes (optional).
