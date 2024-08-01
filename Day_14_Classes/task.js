@@ -146,3 +146,33 @@ class Person3 {
 
 // Call the static method without creating an instance of the class
 console.log(Person3.genericGreeting());
+
+
+//* Task 6: Add a static property to the Student class to keep track of the number of students created. Increment this property in the constructor and log the total number of students.
+
+// Define the Student class that extends Person
+class Student2 extends Person {
+    // Static property to keep track of the number of students created
+    static studentCount = 0;
+
+    // Constructor to initialize properties of both Person and Student
+    constructor(name, age, studentID) {
+        super(name, age);               // Call the constructor of the parent class
+        this.studentID = studentID;     // Initialize the studentID property
+        Student2.studentCount++;        // Increment the student count
+    }
+
+    // Static method to get the student count
+    static getStudentCount() {
+        return Student2.studentCount;
+    }
+}
+
+// Create instances of the Student class
+const student2 = new Student2("Suraj", 26, "S12345");
+const student3 = new Student2("Srj", 26, "S12349");
+const student4 = new Student2("SRJ", 26, "S12045");
+
+// Log the total number of students after all instances are created
+// Call the static method without creating an instance of the class
+console.log(`Total number of students : ${Student2.getStudentCount()}`);
