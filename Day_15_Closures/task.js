@@ -109,3 +109,24 @@ const greet = createGreeting("Suraj");
 
 // Call the greeting function and log the result
 console.log(greet());
+
+
+//* **************************************************************
+//* Activity 3: Closures in Loops
+//* **************************************************************
+
+//* Task 5: Write a loop that creates an array of functions. Each function should log its index when called. Use a closure to ensure each function logs the correct index.
+
+// Create an array to hold the functions
+const array = [];
+
+// Loop to create functions and add them to the array
+for(let i = 0; i <= 5; i++) {
+    // Create a closure that captures the current value of 'i'
+    array.push(function () {
+        console.log(`Index : ${i}`);
+    });
+}
+
+// Call each fuction in the array
+array.forEach(printIndex => printIndex ());
