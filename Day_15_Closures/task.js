@@ -62,3 +62,32 @@ myCounter.increment();
 
 // Get and log the current value of the counter
 console.log('Current value of counter is : ', myCounter.getValue());
+
+
+//* **************************************************************
+//* Activity 2: Practical Closures
+//* **************************************************************
+
+//* Task 3: Write a function that generates unique IDs. Use a closure to keep track of the last generated ID and increment it with each call.
+
+// Function to generate unique IDs
+function uniqueIDGenerator () {
+    let lastID = 0;
+
+    // Function to generate a new unique ID
+    function generateID () {
+        lastID += Math.floor(Math.random() * 100) + 1;
+        return lastID;
+    }
+
+    // Return the generateId function
+    return generateID;
+}
+
+// Create a unique ID generator instance
+const uniqueID = uniqueIDGenerator();
+
+// Generate and log unique IDs
+console.log(`Last ID : ${uniqueID()}`);
+console.log(`Last ID : ${uniqueID()}`);
+console.log(`Last ID : ${uniqueID()}`);
