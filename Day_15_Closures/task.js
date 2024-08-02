@@ -91,3 +91,21 @@ const uniqueID = uniqueIDGenerator();
 console.log(`Last ID : ${uniqueID()}`);
 console.log(`Last ID : ${uniqueID()}`);
 console.log(`Last ID : ${uniqueID()}`);
+
+
+//* Task 4: Create a closure that captures a user's name and returns a function that greets the user by name.
+
+// Function to create a greeting function for a user
+function createGreeting (name) {
+    // Closure that captures the user's name
+    return function () {
+        // Return a greeting message using the captured name
+        return `Hello! ${name}`;
+    };
+};
+
+// Create a greeting function for a specific user
+const greet = createGreeting("Suraj");
+
+// Call the greeting function and log the result
+console.log(greet());
