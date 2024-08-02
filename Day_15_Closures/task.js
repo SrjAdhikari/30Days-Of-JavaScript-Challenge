@@ -27,3 +27,38 @@ const myInnerFunction = outerFunction();
 
 // Call the inner function and log the result
 console.log(myInnerFunction());
+
+
+//* Task 2: Create a closure that maintains a private counter. Implement functions to increment and get the current value of the counter.
+
+// Function to create a private counter with increment and get functionality
+function createCounter () {
+    let counter = 0;
+
+    // Function to increment the counter
+    function increment () {
+        counter++;
+    }
+
+    // Function to get the current value of the counter
+    function getValue () {
+        return counter;
+    }
+
+    // Return an object with methods to access the counter
+    return {
+        increment : increment,
+        getValue : getValue
+    };
+}
+
+// Create a new counter instance
+const myCounter = createCounter();
+
+// Increment the counter
+myCounter.increment();
+myCounter.increment();
+myCounter.increment();
+
+// Get and log the current value of the counter
+console.log('Current value of counter is : ', myCounter.getValue());
