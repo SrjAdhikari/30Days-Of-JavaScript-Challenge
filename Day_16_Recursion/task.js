@@ -86,3 +86,27 @@ const elements = [10, 50, 55, 60, 75, 30];              // Array of elements to 
 const lastIndex = elements.length - 1;                  // Compute the index of the last element
 const maxNumber = findMaximum(elements, lastIndex);     // Find the maximum element in the array
 console.log(`Maximum element in an array is : ${maxNumber}`);
+
+
+//* **************************************************************
+//* Activity 3: String Manipulation with Recursion
+//* **************************************************************
+
+//* Task 5: Write a recursive function to reverse a string. Log the result for a few test cases.
+
+// Function to reverse a string recursively
+const reverseString = (str) => {
+    // Base case: If the string is empty or a single character, return it as is
+    if (str.length <= 1) {
+        return str;
+    }
+
+    // Recursive case: Reverse the substring starting from the second character and append the first character to the end
+    return reverseString(str.substring(1)) + str.charAt(0);
+}
+
+console.log(`Reverse string : ${reverseString("JavaScript")}`);
+console.log(`Reverse string : ${reverseString("Challenge")}`);
+console.log(`Reverse string : ${reverseString("ChaiAurCode")}`);
+console.log(`Reverse string : ${reverseString("S")}`);
+console.log(`Reverse string : ${reverseString("")}`);
