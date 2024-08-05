@@ -44,3 +44,26 @@ console.log(`5th fibonacci number is : ${fibonacci(5)}`);
 console.log(`2nd fibonacci number is : ${fibonacci(2)}`);
 console.log(`8th fibonacci number is : ${fibonacci(8)}`);
 console.log(`15th fibonacci number is : ${fibonacci(15)}`);
+
+
+//* **************************************************************
+//* Activity 2: Recursion with Arrays
+//* **************************************************************
+
+//* Task 3: Write a recursive function to find the sum of all elements in an array. Log the result for a few test cases
+
+// Function to calculate the sum of elements in an array recursively
+const arraySum = (arr, index) => {
+    // Base case: If the index is negative, return 0 (no elements left to sum)
+    if (index < 0) {
+        return 0;
+    }
+
+    // Recursive case: Sum the current element with the sum of the rest of the array
+    return arr[index] + arraySum(arr, index - 1);
+}
+
+const array = [1, 2, 3, 4, 5];          // Array of numbers to sum
+const index = array.length - 1;         // Start index for the sum calculation (last element of the array)
+const sum = arraySum(array, index);     // Calculate the sum of all elements in the array
+console.log(`Sum of all elements in array is : ${sum}`);
