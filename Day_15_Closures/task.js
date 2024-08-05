@@ -384,3 +384,14 @@ const fact = memoizeFact();
 console.log(fact(2));       // Computes 2! (2) and caches the result
 console.log(fact(3));       // Computes 3! (6), using the cached result of 2!
 console.log(fact(2));       // Fetches the cached result of 2! (2) without recomputing
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Understand and create closures in JavaScript.
+//* • Use closures to maintain private state and create encapsulated modules.
+//* • Apply closures in practical scenarios like generating unique IDs and memoization.
+//* • Use closures in loops to capture and use variables correctly.
