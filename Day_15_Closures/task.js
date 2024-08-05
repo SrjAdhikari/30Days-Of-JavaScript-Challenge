@@ -130,3 +130,128 @@ for(let i = 0; i <= 5; i++) {
 
 // Call each fuction in the array
 array.forEach(printIndex => printIndex ());
+
+
+//* **************************************************************
+//* Activity 4: Module Pattern
+//* **************************************************************
+
+//* Task 6: Use closures to create a simple module for managing a collection of items. Implement methods to add, remove, and list items.
+
+//* 1.
+// Create a module for managing a collection of items using an IIFE
+const itemManager = ( () => {
+    // Private array to store items
+    let items = [];
+
+    return {
+        // Method to add an item to the collection
+        addItem: function(item) {
+            // Check if the item already exists in the collection
+            if (items.includes(item)) {
+                console.log(`${item} is already in the collection.`);
+            } else {
+                // Add the item to the collection and log the addition
+                items.push(item);
+                console.log(`${item} added to the collection.`);
+            }
+        },
+
+        // Method to remove an item from the collection
+        removeItem: function(item) {
+            // Find the index of the item to be removed
+            const index = items.indexOf(item);
+            if (index > -1) {
+                // Remove the item if it exists and log the removal
+                items.splice(index, 1);
+                console.log(`${item} removed from the collection.`);
+            } else {
+                // Log a message if the item is not found
+                console.log(`${item} is not in the collection.`);
+            }
+        },
+
+        // Method to list all items in the collection
+        listItems: function() {
+            if (items.length === 0) {
+                // Log a message if the collection is empty
+                console.log(`No items in the collection.`);
+            } else {
+                // Log the items in the collection
+                console.log(`Items in the collection:`);
+                items.forEach(item => console.log(item));
+            }
+        }
+    };
+})();
+
+// Example usage of the itemManager module
+itemManager.addItem('Apple');           // Add 'Apple' to the collection
+itemManager.addItem('Banana');          // Add 'Banana' to the collection
+itemManager.listItems();                // List all items in the collection
+itemManager.removeItem('Apple');        // Remove 'Apple' from the collection
+itemManager.listItems();                // List all items in the collection
+itemManager.removeItem('Grapes');       // Attempt to remove 'Grapes', which is not in the collection
+itemManager.listItems();                // List all items in the collection
+console.log(`\n`);
+
+
+//* 2.
+// Create a module for managing a collection of items using an IIFE
+const ItemManager = (() => {
+    // Private array to hold the collection of items
+    const items = [];
+
+    // Method to add an item to the collection
+    const addItem = (item) => {
+        // Check if the item already exists in the collection
+        if (items.includes(item)) {
+            console.log(`${item} already in the collection.`);
+        } else {
+            // Add the new item to the collection
+            items.push(item);
+        }
+    };
+
+    // Method to remove an item from the collection
+    const removeItem = (item) => {
+        // Find the index of the item in the collection
+        const index = items.indexOf(item);
+        if (index > -1) {
+            // Remove the item from the collection
+            items.splice(index, 1);
+            console.log(`${item} removed from the collection.`);
+        } else {
+            console.log(`${item} is not in the collection.`);
+        }
+    };
+
+    // Method to list all items in the collection
+    const ListItems = () => {
+        if (items.length === 0) {
+            // Inform the user that there are no items in the collection
+            console.log(`No items in the collection.`);
+        } else {
+            // List all items in the collection
+            console.log(`Items in the collection:`);
+            items.forEach((item) => console.log(item));
+        }
+    };
+
+    // Return an object exposing the public methods
+    return {
+        addItem,
+        removeItem,
+        ListItems
+    };
+})();
+
+// Example usage of the itemManager module
+ItemManager.addItem('Apple');           // Add 'Apple' to the collection
+ItemManager.addItem('Mango');           // Add 'Mango' to the collection
+ItemManager.addItem('Banana');          // Add 'Banana' to the collection
+ItemManager.ListItems();                // List all items in the collection
+ItemManager.removeItem('Apple');        // Remove 'Apple' from the collection
+ItemManager.ListItems();                // List all items in the collection
+ItemManager.removeItem('Grapes');       // Attempt to remove 'Grapes', which is not in the collection
+ItemManager.ListItems();                // List all items in the collection
