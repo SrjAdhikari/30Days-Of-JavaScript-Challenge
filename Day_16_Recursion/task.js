@@ -67,3 +67,22 @@ const array = [1, 2, 3, 4, 5];          // Array of numbers to sum
 const index = array.length - 1;         // Start index for the sum calculation (last element of the array)
 const sum = arraySum(array, index);     // Calculate the sum of all elements in the array
 console.log(`Sum of all elements in array is : ${sum}`);
+
+
+//* Task 4: Write a recursive function to find the maximum element in an array. Log the result for a few test cases.
+
+// Function to find the maximum element in an array recursively
+const findMaximum = (arr, index) => {
+    // Base case: If index is 0, return the first element
+    if (index === 0) {
+        return arr[index];
+    }
+
+    // Recursive case: Compare the current element with the maximum of the rest of the array
+    return Math.max(arr[index], findMaximum(arr, index - 1));
+}
+
+const elements = [10, 50, 55, 60, 75, 30];              // Array of elements to find the maximum in
+const lastIndex = elements.length - 1;                  // Compute the index of the last element
+const maxNumber = findMaximum(elements, lastIndex);     // Find the maximum element in the array
+console.log(`Maximum element in an array is : ${maxNumber}`);
