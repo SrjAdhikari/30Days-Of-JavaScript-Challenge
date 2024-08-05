@@ -2,6 +2,8 @@
 //* Day 15 : Closures
 //* **************************************************************
 
+import pkg from 'lodash';
+const { memoize } = pkg;
 
 //* **************************************************************
 //* Activity 1: Understanding Closures
@@ -255,3 +257,46 @@ ItemManager.removeItem('Apple');        // Remove 'Apple' from the collection
 ItemManager.ListItems();                // List all items in the collection
 ItemManager.removeItem('Grapes');       // Attempt to remove 'Grapes', which is not in the collection
 ItemManager.ListItems();                // List all items in the collection
+
+
+//* **************************************************************
+//* Activity 5: Memoization
+//* **************************************************************
+
+//* Task 7: Write a function that memoizes the results of another function. Use a closure to store the results of previous computations.
+
+// Memoize function that stores results of previous computations
+const momoize = (func) => {
+    // Private object to store cached results
+    const cache = {};
+
+    // Return a new function that uses the cache
+    return (...args) => {
+        // Create a unique key for the cache using the arguments
+        const key = JSON.stringify(args);
+
+        // Check if the result is already in the cache
+        if(cache[key]) {
+            console.log(`Fetching from cahe : `, key);
+            return cache[key];
+        }
+
+        // Compute the result if not found in the cache
+        console.log(`Computing result for : `, key);
+        const result = func(...args);
+
+        // Store the computed result in the cache
+        cache[key] = result;
+        return result;
+    };
+};
+
+// Example function to be memoized
+const add = (a, b) => a + b;
+
+// Create a memoized version of the `add` function
+const memoizedCalculation = memoize(add);
+
+// Test the memoized function
+console.log(memoizedCalculation(5, 7));         // Computes and caches the result
+console.log(memoizedCalculation(50, 27));       // Computes and caches the result
