@@ -300,3 +300,87 @@ const memoizedCalculation = memoize(add);
 // Test the memoized function
 console.log(memoizedCalculation(5, 7));         // Computes and caches the result
 console.log(memoizedCalculation(50, 27));       // Computes and caches the result
+
+
+//* Task 8: Create a memoized version of a function that calculates the factorial of a number.
+
+//* 1.
+// Memoize function that stores results of previous computations
+const memoizeFactorial = (func) => {
+    // Private object to store cached results
+    const cache = {};
+
+    // Return a new function that uses the cache
+    return (...args) => {
+        // Create a unique key for the cache using the arguments
+        const key = JSON.stringify(args);
+
+        // Check if the result is already in the cache
+        if(cache[key]) {
+            console.log(`Fetching from cahe : `, key);
+            return cache[key];
+        }
+
+        // Compute the result if not found in the cache
+        console.log(`Computing result for : `, key);
+        const result = func(...args);
+
+        // Store the computed result in the cache
+        cache[key] = result;
+        return result;
+    };
+};
+
+// Function to calculate factorial
+const factorial = (n) => {
+    if(n === 0 || n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+};
+
+// Create a memoized version of the factorial function
+const memoizedFactorial = memoize(factorial);
+
+// Test the memoized factorial function
+console.log(memoizedFactorial(5));      // Computes and caches the result
+console.log(memoizedFactorial(5));      // Fetches from cache
+console.log(memoizedFactorial(6));      // Computes and caches the result
+
+
+//* 2.
+function memoizeFact() {
+    // Create an object to store previously computed factorial values
+    const cache = {};
+
+    // Return a new function that calculates factorial and uses caching
+    return function fact(n) {
+        // Check if the factorial of 'n' is already computed and stored in the cache
+        if (n in cache) {
+            // If found in cache, return the cached value
+            return cache[n];
+        } 
+        else {
+            // If not found in the cache, compute the factorial
+            if (n === 0) {
+                // Base case: factorial of 0 is defined as 1
+                cache[n] = 1;
+            } 
+            else {
+                // Recursive case: compute factorial using the formula n * factorial(n - 1)
+                // Store the result in the cache for future use
+                cache[n] = n * factorial(n - 1);
+            }
+            // Return the computed result
+            return cache[n];
+        }
+    };
+}
+
+// Create an instance of the memoized factorial function
+const fact = memoizeFact();
+
+// Example usage of the memoized factorial function
+console.log(fact(2));       // Computes 2! (2) and caches the result
+console.log(fact(3));       // Computes 3! (6), using the cached result of 2!
+console.log(fact(2));       // Fetches the cached result of 2! (2) without recomputing
