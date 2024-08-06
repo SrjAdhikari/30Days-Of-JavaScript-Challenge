@@ -170,3 +170,42 @@ const ending = word.length - 1;
 const palindrome = isPalindrome(word, starting, ending);
 
 console.log(`${palindrome ? 'String is palindrome' : 'String is not palindrome'}`);
+
+
+//* **************************************************************
+//* Activity 4: Recursive Search
+//* **************************************************************
+
+//* Task 7: Write a recursive function to perform a binary search on a sorted array. Log the index of the target element for a few test cases.
+
+// Function to perform binary search on a sorted array
+const binarySearch = (arr, start, end, target) => {
+    // Base case: if the start index exceeds the end index, target is not found
+    if (start > end) {
+        return -1;
+    }
+
+    // Calculate the middle index. Use Math.floor to ensure it’s an integer.
+    let mid = Math.floor(start + (end - start) / 2);
+
+    // Check if the middle element is the target
+    if (arr[mid] === target) {
+        return mid; // Target found at index mid
+    }
+    // If the middle element is less than the target, search the right half
+    else if (arr[mid] < target) {
+        return binarySearch(arr, mid + 1, end, target);
+    }
+    // If the middle element is greater than the target, search the left half
+    else {
+        return binarySearch(arr, start, mid - 1, target);
+    }
+};
+
+const arr = [10, 20, 30, 40, 50];
+const startIndex = 0;
+const endIndex = arr.length - 1;
+const target = 4;
+const foundIndex = binarySearch(arr, startIndex, endIndex, target);
+
+console.log(foundIndex !== -1 ? `Target found in index ${foundIndex}` : 'Target not found');
