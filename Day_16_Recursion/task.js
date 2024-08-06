@@ -141,3 +141,32 @@ const end = str.length - 1;
 
 // Call the function and print the reversed string
 console.log(`Reversed string: ${stringReverse(str, start, end)}`);
+
+
+//* Task 6: Write a recursive function to check if a string is a palindrome. Log the result for a few test cases.
+
+// Function to check if a string is a palindrome using recursion
+const isPalindrome = (str, start, end) => {
+    // Base case: If start index is greater than or equal to end index,
+    // it means all characters have been checked and the string is a palindrome
+    if (start >= end) {
+        return true;
+    }
+
+    // Check if characters at the start and end indices are different
+    // If they are different, the string is not a palindrome
+    if (str[start] !== str[end]) {
+        return false;
+    }
+
+    // Recursively check the remaining substring by moving start index forward
+    // and end index backward
+    return isPalindrome(str, start + 1, end - 1);
+}
+
+const word = "MOM";
+const starting = 0;
+const ending = word.length - 1;
+const palindrome = isPalindrome(word, starting, ending);
+
+console.log(`${palindrome ? 'String is palindrome' : 'String is not palindrome'}`);
