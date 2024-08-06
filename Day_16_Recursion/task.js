@@ -234,3 +234,41 @@ const numArray = [10, 20, 10, 40, 10, 30, 10, 50];
 const arrIndex = numArray.length - 1;
 const targetNum = 10;
 console.log(`Total occurence of ${targetNum} is :`, countOccurence(numArray, arrIndex, targetNum));
+
+
+//* **************************************************************
+//* Activity 5: Tree Traversal (Optional)
+//* **************************************************************
+
+//* Task 9: Write a recursive function to perform an in-order traversal of a binary tree. Log the nodes as they are visited.
+
+// Define the Node class for a binary tree node
+class Node {
+    constructor(data, left = null, right = null) {
+        this.data = data;       // Data stored in the node
+        this.left = left;       // Left child node
+        this.right = right;     // Right child node
+    }
+}
+
+// Recursive function to perform in-order traversal of a binary tree
+const inOrder = (root) => {
+    // Base case: If the root node is null, return
+    if (!root) {
+        return null;
+    }
+
+    // Recursively traverse the left subtree
+    inOrder(root.left);
+
+    // Visit the current node (log its data)
+    console.log(root.data);
+
+    // Recursively traverse the right subtree
+    inOrder(root.right);
+}
+
+const root = new Node(4);                               // Create the root node with value 4
+root.left = new Node(2, new Node(1), new Node(3));      // Left child with value 2, having children 1 and 3
+root.right = new Node(6, new Node(5), new Node(7));     // Right child with value 6, having children 5 and 7
+console.log('In-Order Traversal :', inOrder(root));     // Perform in-order traversal of the tree and log the result
