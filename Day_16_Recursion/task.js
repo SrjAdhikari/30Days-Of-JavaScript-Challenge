@@ -333,3 +333,14 @@ console.log('Depth of tree3:', calculateDepth(tree3));      // Expected output: 
 /* Tree3 :
     1
 */
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Understand and implement basic recursion.
+//* • Apply recursion to solve problems with arrays and strings.
+//* • Use recursion for searching and counting elements in arrays.
+//* • Perform tree traversal and calculate tree depth using recursion (optional).
