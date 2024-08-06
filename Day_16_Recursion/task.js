@@ -94,6 +94,7 @@ console.log(`Maximum element in an array is : ${maxNumber}`);
 
 //* Task 5: Write a recursive function to reverse a string. Log the result for a few test cases.
 
+//* 1.
 // Function to reverse a string recursively
 const reverseString = (str) => {
     // Base case: If the string is empty or a single character, return it as is
@@ -110,3 +111,33 @@ console.log(`Reverse string : ${reverseString("Challenge")}`);
 console.log(`Reverse string : ${reverseString("ChaiAurCode")}`);
 console.log(`Reverse string : ${reverseString("S")}`);
 console.log(`Reverse string : ${reverseString("")}`);
+
+//* **************************************************************
+
+//* 2.
+// Recursive function to reverse a string
+const stringReverse = (str, start, end) => {
+    // Base case: If the start index is greater than or equal to the end index, return the string
+    if (start >= end) {
+        return str;
+    }
+
+    // Convert the string to an array of characters for easy manipulation
+    let arr = str.split('');
+
+    // Swap characters at the start and end indices
+    let character = arr[start];
+    arr[start] = arr[end];
+    arr[end] = character;
+
+    // Convert the array back to a string and make a recursive call to reverse the remaining part of the string
+    return stringReverse(arr.join(''), start + 1, end - 1);
+}
+
+// Initialize the string to be reversed and set the start and end indices
+const str = "suraj";
+const start = 0;
+const end = str.length - 1;
+
+// Call the function and print the reversed string
+console.log(`Reversed string: ${stringReverse(str, start, end)}`);
