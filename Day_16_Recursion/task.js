@@ -272,3 +272,64 @@ const root = new Node(4);                               // Create the root node 
 root.left = new Node(2, new Node(1), new Node(3));      // Left child with value 2, having children 1 and 3
 root.right = new Node(6, new Node(5), new Node(7));     // Right child with value 6, having children 5 and 7
 console.log('In-Order Traversal :', inOrder(root));     // Perform in-order traversal of the tree and log the result
+
+
+//* Task 10: Write a recursive function to calculate the depth of a binary tree. Log the result for a few test cases.
+
+// Define the Node class for a binary tree node
+class TreeNode {
+    constructor(data, left = null, right = null) {
+        this.data = data;       // Data stored in the node
+        this.left = left;       // Left child node
+        this.right = right;     // Right child node
+    }
+}
+
+// Recursive function to calculate the depth (or height) of a binary tree
+const calculateDepth = (root) => {
+    // Base case: If the node is null, the depth is 0
+    if (root === null) {
+        return 0;
+    }
+
+    // Recursively calculate the depth of the left subtree
+    const leftDepth = calculateDepth(root.left);
+
+    // Recursively calculate the depth of the right subtree
+    const rightDepth = calculateDepth(root.right);
+
+    // The depth of the current node is 1 (for the current node itself) plus the maximum depth of the left and right subtrees
+    return Math.max(leftDepth, rightDepth) + 1;
+}
+
+// Test cases
+const tree1 = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
+const tree2 = new TreeNode(1, new TreeNode(2, new TreeNode(4, new TreeNode(7), new TreeNode(8)), new TreeNode(5)), new TreeNode(3));
+const tree3 = new TreeNode(1); // Single node tree
+
+// Calculate and log the depth for each test case
+console.log('Depth of tree1:', calculateDepth(tree1));      // Expected output: 3 (1 -> 2 -> 4 or 1 -> 2 -> 5)
+console.log('Depth of tree2:', calculateDepth(tree2));      // Expected output: 4 (1 -> 2 -> 4 -> 7 or 1 -> 2 -> 4 -> 8)
+console.log('Depth of tree3:', calculateDepth(tree3));      // Expected output: 1 (Only the root node)
+
+/* Tree1 :
+      1
+    /  \
+   2    3
+ /  \
+4    5
+*/
+
+/* Tree2 :
+      1
+     / \
+    2   3
+   / \
+  4   5
+ / \
+7   8
+*/
+
+/* Tree3 :
+    1
+*/
