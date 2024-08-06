@@ -209,3 +209,28 @@ const target = 4;
 const foundIndex = binarySearch(arr, startIndex, endIndex, target);
 
 console.log(foundIndex !== -1 ? `Target found in index ${foundIndex}` : 'Target not found');
+
+
+//* Task 8: Write a recursive function to count the occurrences of a target element in an array. Log the result for a few test cases.
+
+// Recursive function to count the occurrences of a target value in an array
+const countOccurence = (arr, index, target) => {
+    // Base case: If index is less than 0, we've checked all elements, return 0
+    if (index < 0) {
+        return 0;
+    }
+
+    // If the current element matches the target, count it and recurse for the remaining elements
+    if (arr[index] === target) {
+        return 1 + countOccurence(arr, index - 1, target);
+    }
+    // If the current element does not match the target, just recurse for the remaining elements
+    else {
+        return countOccurence(arr, index - 1, target);
+    }
+}
+
+const numArray = [10, 20, 10, 40, 10, 30, 10, 50];
+const arrIndex = numArray.length - 1;
+const targetNum = 10;
+console.log(`Total occurence of ${targetNum} is :`, countOccurence(numArray, arrIndex, targetNum));
