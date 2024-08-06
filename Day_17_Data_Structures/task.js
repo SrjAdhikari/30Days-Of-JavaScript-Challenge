@@ -133,3 +133,50 @@ list.removeNode();
 list.removeNode();
 console.log('List after removing all nodes:');
 list.displayNode();     // Output: (empty list)
+
+
+//* **************************************************************
+//* Activity 2: Stack
+//* **************************************************************
+
+//* Task 3: Implement a Stack class with methods push (add element), pop (remove element), and peek (view the top element).
+
+// Define the Stack class
+class Stack {
+    // Constructor to initialize the stack
+    constructor() {
+        this.items = [];                            // Initialize an empty array to store stack elements
+    }
+
+    // Add an element to the top of the stack
+    push(element) {
+        // Add the element to the end of the array, which represents the top of the stack
+        this.items.push(element);
+    }
+    
+    // Remove and return the top element of the stack
+    pop() {
+        if (this.items.length === 0) {
+            console.log('Stack is empty!');         // Print a message if the stack is empty
+            return null;                            // Return null when trying to pop from an empty stack
+        }
+        return this.items.pop();                    // Remove and return the last element of the array, which is the top of the stack
+    }
+
+    // Return the top element of the stack without removing it
+    peek() {
+        if (this.items.length === 0) {
+            console.log('Stack is empty!');         // Print a message if the stack is empty
+            return null;                            // Return null when trying to peek from an empty stack
+        }
+        return this.items[this.items.length - 1];   // Return the last element of the array, which is the top of the stack
+    }
+}
+
+// Example usage:
+const stack = new Stack();
+stack.push(10);
+stack.push(20);
+stack.push(30);
+console.log('Top element:', stack.peek());          // Output -> Top element: 30
+console.log('Popped element:', stack.pop());        // Output -> Popped element: 30
