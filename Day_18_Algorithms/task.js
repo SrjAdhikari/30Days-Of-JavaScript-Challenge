@@ -134,10 +134,50 @@ const linearSearch = (array, target) => {
         if(array[i] === target) {
             // If a match is found, log the index where the target is located
             console.log(`Target found at index : ${i}`);
+            return;
         }
     }
+    console.log(`Target not found.`);
 }
 
 const arrayNum = [10, 20, 50, 40, 30, 55];
 const target = 40;
 linearSearch(arrayNum, target);
+
+
+//*　Task 5: Implement the binary search algorithm to find a target value in a sorted array. Log the index of the target value.
+
+// Function to perform a binary search on a sorted array
+const binarySearch = (array, target) => {
+    let start = 0;                  // Initialize the start index of the array
+    let end = array.length - 1;     // Initialize the end index of the array
+
+    // Loop while the start index is less than or equal to the end index
+    while (start <= end) {
+        // Calculate the middle index of the current subarray
+        let mid = Math.floor(start + (end - start) / 2);
+
+        // Check if the middle element is equal to the target
+        if (array[mid] === target) {
+            console.log(`Target found at index: ${mid}`);       // Log the index where the target is found
+            return mid;                                         // Return the index of the target
+        }
+        // If the target is greater than the middle element, search the right half
+        else if (array[mid] < target) {
+            // Move the start index to the right of the middle index
+            start = mid + 1;
+        }
+        // If the target is less than the middle element, search the left half
+        else {
+            // Move the end index to the left of the middle index
+            end = mid - 1; 
+        }
+    }
+    // If the loop exits without finding the target, log that the target is not found
+    console.log('Target not found.');
+    return -1;  // Return -1 to indicate that the target is not in the array
+}
+
+const number = [10, 20, 40, 50, 70, 80];
+const element = 80;
+binarySearch(number, element);
