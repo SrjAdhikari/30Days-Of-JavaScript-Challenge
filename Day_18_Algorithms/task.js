@@ -371,3 +371,15 @@ const fibonacci = (n) => {
 
 const n = 5;
 fibonacci(n);
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Implement and understand common sorting algorithms.
+//* • Implement and understand common searching algorithms.
+//* • Solve string manipulation problems using algorithms.
+//* • Solve string manipulation problems using algorithms.
+//* • Apply dynamic programming to solve complex problems (optional).
