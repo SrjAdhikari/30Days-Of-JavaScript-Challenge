@@ -181,3 +181,37 @@ const binarySearch = (array, target) => {
 const number = [10, 20, 40, 50, 70, 80];
 const element = 80;
 binarySearch(number, element);
+
+
+//* **************************************************************
+//* Activity 3: String Algorithms
+//* **************************************************************
+
+//* Task 6: Write a function to count the occurrences of each character in a string. Log the character counts.
+
+// Function to count the occurrences of each character in a string
+const countOccurence = (str) => {
+    // Create an object to store character counts
+    const charCount = {};
+
+    // Iterate through each character in the string
+    for (let char of str) {
+        // If the character is already in the object, increment its count
+        if (charCount[char]) {
+            charCount[char]++;
+        } 
+        else {
+            // If the character is not in the object, add it with count 1
+            charCount[char] = 1;
+        }
+    }
+
+    // Log the character counts
+    for (let char in charCount) {
+        console.log(`${char}: ${charCount[char]}`);
+    }
+}
+
+// Example usage
+const str = "JavaScript";
+countOccurence(str);
