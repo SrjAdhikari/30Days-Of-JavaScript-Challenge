@@ -240,7 +240,7 @@ class Queue {
     // Remove and return the element from the front of the queue
     dequeue() {
         // Check if the queue is empty
-        if (this.isEmpty()) {
+        if (this.items.length === 0) {
             // Return undefined or throw an error if preferred
             console.log('Queue is empty.');
         }
@@ -251,7 +251,7 @@ class Queue {
     // View the element at the front of the queue without removing it
     front() {
         // Check if the queue is empty
-        if (this.isEmpty()) {
+        if (this.items.length === 0) {
             // Return undefined or throw an error if preferred
             console.log('Queue is empty.');
         }
@@ -269,3 +269,30 @@ queue.enqueue(3);
 console.log(queue.front());     // Output: 1
 console.log(queue.dequeue());   // Output: 1
 console.log(queue.front());     // Output: 2
+
+
+//* Task 6: Use the Queue class to simulate a simple printer queue where print jobs are added to the queue and processed in order.
+// (The Queue class is already defined in Task 3, so we use that class instead of creating it again).
+
+// Define the PrinterQueue class extending from Queue
+class PrinterQueue extends Queue {
+    printJob() {
+        // Continue processing jobs while there are elements in the queue
+        while(this.items.length > 0) {
+            // Remove and retrieve the job from the front of the queue
+            const job = this.dequeue();
+            // Simulate printing the job by logging it to the console
+            console.log(`Printing : ${job}`);
+        }
+        // Once all jobs have been processed, log a completion message
+        console.log('All print jobs have been processed.');
+    }
+}
+
+// Example usage
+const printerQueue = new PrinterQueue();                // Create a new PrinterQueue instance
+printerQueue.enqueue('Print job 1:- Document1.pdf');    // Add print jobs to the queue
+printerQueue.enqueue('Print job 2:- Document2.docx');
+printerQueue.enqueue('Print job 3:- Document3.xls');
+
+printerQueue.printJob();                                // Process and print all jobs in the queue
