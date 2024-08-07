@@ -395,3 +395,14 @@ tree.insertNode(7);
 
 // Display nodes in in-order
 tree.inOrderTraversal();
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Implement and use linked lists for dynamic data storage.
+//* • Use stacks for LIFO (Last-In-First-Out) operations and reverse data.
+//* • Use queues for FIFO (First-in-First-Out) operations and simulate real-world scenarios.
+//* • Implement binary trees for hierarchical data storage and traversal.
