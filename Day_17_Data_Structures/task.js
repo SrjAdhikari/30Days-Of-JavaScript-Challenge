@@ -216,3 +216,56 @@ const reverseString = (str) => {
 const originalString = 'JavaScript Challenge';
 const reversedString = reverseString(originalString);
 console.log('Reversed String : ', reversedString);
+
+
+//* **************************************************************
+//* Activity 3: Queue
+//* **************************************************************
+
+//* Task 5: Implement a Queue class with methods enqueue (add element), dequeue (remove element), and front (view the first element).
+
+// Define the Queue class
+class Queue {
+    // Constructor to initialize the queue
+    constructor () {
+        // Initialize an empty array to store queue elements
+        this.items = [];
+    }
+
+    // Add an element to the end of the queue
+    enqueue(element) {
+        this.items.push(element);
+    }
+
+    // Remove and return the element from the front of the queue
+    dequeue() {
+        // Check if the queue is empty
+        if (this.isEmpty()) {
+            // Return undefined or throw an error if preferred
+            console.log('Queue is empty.');
+        }
+        // Remove and return the first element
+        return this.items.shift(); 
+    }
+
+    // View the element at the front of the queue without removing it
+    front() {
+        // Check if the queue is empty
+        if (this.isEmpty()) {
+            // Return undefined or throw an error if preferred
+            console.log('Queue is empty.');
+        }
+        // Return the first element
+        return this.items[0];
+    }
+}
+
+// Example usage
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+console.log(queue.front());     // Output: 1
+console.log(queue.dequeue());   // Output: 1
+console.log(queue.front());     // Output: 2
