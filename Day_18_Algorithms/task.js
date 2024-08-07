@@ -249,3 +249,49 @@ const longestUniqueSubstring = (str) => {
 // Example usage
 const exampleString = "abcabcbb";
 longestUniqueSubstring(exampleString);
+
+
+//* **************************************************************
+//* Activity 4: Array Algorithms
+//* **************************************************************
+
+//* Task 8: Write a function to rotate an array by k positions. Log the rotated array.
+
+// Helper function to reverse a portion of the array
+const reverse = (array, start, end) => {
+    // Continue swapping elements until start index is less than end index
+    while (start < end) {
+        // Swap elements at start and end indices
+        [array[start], array[end]] = [array[end], array[start]];
+        
+        // Move towards the center of the array
+        start++;
+        end--;
+    }
+}
+
+// Function to rotate an array by k positions
+const rotateArray = (array, k) => {
+    // Get the length of the array
+    let n = array.length;
+
+    // Normalize k to handle cases where k is greater than the array length
+    k %= n;
+
+    // Reverse the entire array
+    reverse(array, 0, n - 1);
+    
+    // Reverse the first k elements
+    reverse(array, 0, k - 1);
+    
+    // Reverse the remaining n - k elements
+    reverse(array, k, n - 1);
+
+    // Log the rotated array
+    console.log('Array after rotation: ', array);
+}
+
+// Example usage
+const exampleArray = [1, 2, 3, 4, 5, 6, 7];
+const k = 3;
+rotateArray(exampleArray, k);
