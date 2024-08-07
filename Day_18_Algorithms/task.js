@@ -263,7 +263,6 @@ const reverse = (array, start, end) => {
     while (start < end) {
         // Swap elements at start and end indices
         [array[start], array[end]] = [array[end], array[start]];
-        
         // Move towards the center of the array
         start++;
         end--;
@@ -295,3 +294,48 @@ const rotateArray = (array, k) => {
 const exampleArray = [1, 2, 3, 4, 5, 6, 7];
 const k = 3;
 rotateArray(exampleArray, k);
+
+
+//* Task 9: Write a function to merge two sorted arrays into one sorted array. Log the merged array.
+
+// Function to merge two sorted arrays into one sorted array.
+const mergeSortedArrays = (arr1, arr2) => {
+    let i = 0;              // Pointer for the first array
+    let j = 0;              // Pointer for the second array
+    let mergedArray = [];   // Array to store the merged result
+
+    // Traverse both arrays and merge them
+    while (i < arr1.length && j < arr2.length) {
+        // Compare the current elements of both arrays
+        if (arr1[i] < arr2[j]) {
+            // If element in arr1 is smaller, push it to mergedArray
+            mergedArray.push(arr1[i]);
+            i++;
+        } 
+        else {
+            // If element in arr2 is smaller or equal, push it to mergedArray
+            mergedArray.push(arr2[j]);
+            j++;
+        }
+    }
+
+    // If there are remaining elements in arr1, add them to mergedArray
+    while (i < arr1.length) {
+        mergedArray.push(arr1[i]);
+        i++;
+    }
+
+    // If there are remaining elements in arr2, add them to mergedArray
+    while (j < arr2.length) {
+        mergedArray.push(arr2[j]);
+        j++;
+    }
+
+    // Log the merged array
+    console.log('Merged Array:', mergedArray);
+}
+
+// Example usage
+const array1 = [1, 3, 5, 7];
+const array2 = [2, 4, 6, 8];
+mergeSortedArrays(array1, array2);
