@@ -29,7 +29,7 @@ console.log(node3);                 // Output: Node { value: 3, next: Node { val
 
 //* 2:
 // Define the Node class for a linked list
-class TreeNode {
+class Node1 {
     constructor(value) {
         this.value = value;         // The data stored in the node
         this.next = null;           // A reference to the next node in the list (default is null)
@@ -37,11 +37,11 @@ class TreeNode {
 }
 
 // Create nodes using the modified class
-const node4 = new TreeNode(1);      // Node with value 1, next is null by default
-const node5 = new TreeNode(2);      // Node with value 2, next is null by default
+const node4 = new Node1(1);      // Node with value 1, next is null by default
+const node5 = new Node1(2);      // Node with value 2, next is null by default
 node5.next = node4;                 // Manually set the next property to point to node1
 
-const node6 = new TreeNode(3);      // Node with value 3, next is null by default
+const node6 = new Node1(3);      // Node with value 3, next is null by default
 node6.next = node5;                 // Manually set the next property to point to node2
 
 console.log(node6);                 // Output: Node { value: 3, next: Node { value: 2, next: Node { value: 1, next: null } } }
@@ -296,3 +296,29 @@ printerQueue.enqueue('Print job 2:- Document2.docx');
 printerQueue.enqueue('Print job 3:- Document3.xls');
 
 printerQueue.printJob();                                // Process and print all jobs in the queue
+
+
+//* **************************************************************
+//* Activity 4: Binary Tree
+//* **************************************************************
+
+//* Task 7: Implement a TreeNode class to represent a node in a binary tree with properties value, left, and right.
+
+//* 1:
+// Define the TreeNode class
+class TreeNode {
+    constructor(value, left = null, right = null) {
+        this.value = value;         // The value stored in the node
+        this.left = left;           // The left child node
+        this.right = right;         // The right child node
+    }
+}
+
+//* 2:
+class TreeNode1 {
+    constructor(value) {
+        this.value = value;         // The value stored in the node
+        this.left = null;           // The left child node, initialized to null
+        this.right = null;          // The right child node, initialized to null
+    }
+}
