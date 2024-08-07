@@ -75,3 +75,46 @@ const selectionSort = (array, size) => {
 const array = [10, 2, 8, 6, 3, 1, 5];
 const size = array.length;
 selectionSort(array, size);
+
+
+//* Task 3: Implement the quicksort algorithm to sort an array of numbers in ascending order. Log the sorted array.
+
+// Function to perform Quick sort on an array of numbers.
+const quickSort = (array) => {
+    // Base case: if the array is of length 0 or 1, it's already sorted
+    if(array.length <= 1) {
+        return array;
+    }
+
+    // Choose the pivot element from the middle of the array
+    let pivot = array[Math.floor(array.length / 2)];
+    let left = [];      // Array to hold elements less than the pivot
+    let right = [];     // Array to hold elements greater than or equal to the pivot
+
+    // Iterate through the array to divide elements into left and right arrays
+    for(let i = 0; i < array.length; i++) {
+        // Skip the pivot element itself
+        if(i !== Math.floor(array.length / 2)) {
+            // Compare each element to the pivot
+            if(array[i] < pivot) {
+                // Element is less than pivot, add to left
+                left.push(array[i]);
+            }
+            else {
+                // Element is greater than or equal to pivot, add to right
+                right.push(array[i]);
+            }
+        }
+    }
+
+    // Recursively sort the left and right arrays, and combine them with the pivot
+    // `quickSort(left)` sorts the elements less than the pivot
+    // `quickSort(right)` sorts the elements greater than or equal to the pivot
+    // `[...quickSort(left), pivot, ...quickSort(right)]` concatenates the sorted left array,
+    // the pivot element, and the sorted right array into a single sorted array
+    return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+const numArray = [10, 7, 8, 9, 1, 5];
+quickSort(numArray);
+console.log(`Sorted Array : ${array}`);
