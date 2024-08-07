@@ -339,3 +339,35 @@ const mergeSortedArrays = (arr1, arr2) => {
 const array1 = [1, 3, 5, 7];
 const array2 = [2, 4, 6, 8];
 mergeSortedArrays(array1, array2);
+
+
+//* **************************************************************
+//* Activity 5: Dynamic Programming (Optional)
+//* **************************************************************
+
+//* Task 10: Write a function to solve the Fibonacci sequence using dynamic programming. Log the Fibonacci numbers.
+
+const fibonacci = (n) => {
+    // Initialize the array with the first two Fibonacci numbers
+    let fib = [0, 1];
+
+    // Handle base cases
+    if (n === 0) {
+        console.log('Fibonacci number:', fib[0]);
+        return;
+    }
+    if (n === 1) {
+        console.log('Fibonacci numbers:', fib);
+        return;
+    }
+
+    // Compute Fibonacci numbers from index 2 up to n
+    for (let i = 2; i <= n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    console.log('Fibonacci numbers :', fib);
+}
+
+const n = 5;
+fibonacci(n);
