@@ -215,3 +215,37 @@ const countOccurence = (str) => {
 // Example usage
 const str = "JavaScript";
 countOccurence(str);
+
+
+//* Task 7: Write a function to find the longest substring without repeating characters in a string. Log the length of the substring.
+
+// Function to find the longest substring without repeating characters in a string
+const longestUniqueSubstring = (str) => {
+    let start = 0;              // Start index of the sliding window
+    let maxLength = 0;          // Variable to keep track of the maximum length
+    let charIndexMap = {};      // Map to store the most recent index of each character
+
+    // Iterate through each character in the string
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+
+        // Check if the character is in the map and within the current window
+        if (char in charIndexMap && charIndexMap[char] >= start) {
+            // Move the start index to the right of the last occurrence of the current character
+            start = charIndexMap[char] + 1;
+        }
+
+        // Update the character's latest index in the map
+        charIndexMap[char] = i;
+
+        // Calculate the length of the current window and update maxLength if needed
+        maxLength = Math.max(maxLength, i - start + 1);
+    }
+
+    // Log the length of the longest substring without repeating characters
+    console.log(`Length of the longest substring without repeating characters: ${maxLength}`);
+}
+
+// Example usage
+const exampleString = "abcabcbb";
+longestUniqueSubstring(exampleString);
