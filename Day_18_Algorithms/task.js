@@ -118,3 +118,26 @@ const quickSort = (array) => {
 const numArray = [10, 7, 8, 9, 1, 5];
 quickSort(numArray);
 console.log(`Sorted Array : ${array}`);
+
+
+//* **************************************************************
+//* Activity 2: Searching Algorithms
+//* **************************************************************
+
+//* Task 4: Implement the linear search algorithm to find a target value in an array. Log the index of the target value.
+
+// Function to perform a linear search on an array
+const linearSearch = (array, target) => {
+    // Iterate over each element in the array
+    for(let i = 0; i < array.length; i++) {
+        // Check if the current element is equal to the target
+        if(array[i] === target) {
+            // If a match is found, log the index where the target is located
+            console.log(`Target found at index : ${i}`);
+        }
+    }
+}
+
+const arrayNum = [10, 20, 50, 40, 30, 55];
+const target = 40;
+linearSearch(arrayNum, target);
