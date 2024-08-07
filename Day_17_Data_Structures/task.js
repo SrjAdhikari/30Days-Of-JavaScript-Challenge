@@ -272,7 +272,7 @@ console.log(queue.front());     // Output: 2
 
 
 //* Task 6: Use the Queue class to simulate a simple printer queue where print jobs are added to the queue and processed in order.
-// (The Queue class is already defined in Task 3, so we use that class instead of creating it again).
+// (The Queue class is already defined in Task 5, so we use that class instead of creating it again).
 
 // Define the PrinterQueue class extending from Queue
 class PrinterQueue extends Queue {
@@ -322,3 +322,76 @@ class TreeNode1 {
         this.right = null;          // The right child node, initialized to null
     }
 }
+
+
+//* Task 8: Implement a BinaryTree class with methods for inserting values and performing in-order traversal to display nodes.
+// (The TreeNode class is already defined in Task 7, so we use that class instead of creating it again).
+
+class BinaryTree {
+    constructor() {
+        // The root node of the binary tree, initially set to null
+        this.root = null;
+    }
+
+    // Insert a new node with the specified value into the binary tree.
+    insertNode(value) {
+        // Create a new TreeNode with the given value
+        const rootNode = new TreeNode(value);
+
+        // If the tree is empty, set the new node as the root
+        if(this.root === null) {
+            this.root = rootNode;
+        }
+        // Otherwise, call createTree to find the correct position for the new node
+        else {
+            this.createTree(this.root, rootNode);
+        }
+    }
+
+    // Recursively insert a new node into the correct position in the binary tree.
+    //* The current node in the tree being examined.
+    //* The new node to be inserted into the tree.
+    createTree(currNode, newNode) {
+        // Compare the value of the new node with the current node's value
+        if (newNode.value < currNode.value) {
+            // If the new value is less, it should go to the left subtree
+            if (currNode.left === null) {
+                // If there's no left child, insert the new node here
+                currNode.left = newNode;
+            } else {
+                // Otherwise, recurse on the left subtree
+                this.createTree(currNode.left, newNode);
+            }
+        } 
+        else {
+            // If the new value is greater or equal, it should go to the right subtree
+            if (currNode.right === null) {
+                // If there's no right child, insert the new node here
+                currNode.right = newNode;
+            } else {
+                // Otherwise, recurse on the right subtree
+                this.createTree(currNode.right, newNode);
+            }
+        }
+    }
+
+    inOrderTraversal(node = this.root) {
+        // Base cas: If the current node is not null, perform in-order traversal
+        if(node !== null) {
+            this.inOrderTraversal(node.left);       // Traverse the left subtree
+            console.log(node.value);                // Visit the current node
+            this.inOrderTraversal(node.right);      // Traverse the right subtree
+        }
+    }
+}
+
+// Example usage
+const tree = new BinaryTree();
+tree.insertNode(10);
+tree.insertNode(5);
+tree.insertNode(15);
+tree.insertNode(3);
+tree.insertNode(7);
+
+// Display nodes in in-order
+tree.inOrderTraversal();
