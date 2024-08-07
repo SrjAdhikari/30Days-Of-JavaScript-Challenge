@@ -180,3 +180,39 @@ stack.push(20);
 stack.push(30);
 console.log('Top element:', stack.peek());          // Output -> Top element: 30
 console.log('Popped element:', stack.pop());        // Output -> Popped element: 30
+
+
+//* Task 4: Use the Stack class to reverse a string by pushing all characters onto the stack and then popping them off.
+// (The Stack class is already defined in Task 3, so we use that class instead of creating it again).
+
+// Function to reverse a string using the Stack class
+const reverseString = (str) => {
+    // Create a new instance of the Stack class
+    const stack = new Stack();
+
+    // Loop through each character of the input string
+    for (const char of str) {
+        // Push each character onto the stack
+        stack.push(char);
+    }
+
+    // Initialize an empty string to build the reversed string
+    let reversedOrder = "";
+
+    // While there are characters in the stack
+    while (stack.items.length > 0) {
+        // Remove and retrieve the top character from the stack
+        const topChar = stack.pop();
+        
+        // Append the retrieved character to the reversedOrder string
+        reversedOrder += topChar;
+    }
+
+    // Return the reversed string
+    return reversedOrder;
+}
+
+// Example usage
+const originalString = 'JavaScript Challenge';
+const reversedString = reverseString(originalString);
+console.log('Reversed String : ', reversedString);
