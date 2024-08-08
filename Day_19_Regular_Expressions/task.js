@@ -21,3 +21,22 @@ const matches = text.match(regex);
 
 // Log the array of matches to the console
 console.log(matches);       // Output -> [ 'JavaScript', 'JavaScript' ]
+
+
+//* Task 2: Write a regular expression to match all digits in a string. Log the matches.
+
+// Define the text to search within
+const textString = "There are 24 apples, 7 oranges, and 123 bananas.";
+
+// Define the regular expression to match digits.
+// \d matches any digit and the 'g' flag finds all occurrences.
+//? \d+ is the regular expression pattern where:
+//? \d matches any digit (0-9).
+//? + indicates that one or more digits can be matched in a sequence.
+const regexExp = /\d+/g;
+
+// Use the match() method to find all sequences of digits
+const matchDigits = textString.match(regexExp);
+
+// Log the array of matches to the console
+console.log(matchDigits);   // Output -> [ '24', '7', '123' ]
