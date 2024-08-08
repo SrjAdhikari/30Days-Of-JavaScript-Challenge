@@ -140,3 +140,29 @@ if (matches4) {
 // Full match: user@example.com
 // Username: user
 // Domain: example.com
+
+
+//* **************************************************************
+//* Activity 4: Assertions and Boundaries
+//* **************************************************************
+
+//* Task 7: Write a regular expression to match a word only if it is at the beginning of a string. Log the matches.
+
+// Define the text to search within
+const text5 = "It is day 19 of 30 days JavaScript Challenge.";
+
+// Define the regular expression to match a word at the beginning of the string
+//? ^ asserts the position at the start of the string, ensuring the match is at the beginning.
+//? \b matches a word boundary, ensuring we match a complete word.
+//? \w+ matches one or more word characters (letters, digits, or underscores).
+const regex5 = /^\b\w+/;
+
+// Use the match() method to find the match at the beginning of the string
+const matches5 = text5.match(regex5);
+
+// Check if a match is found and log the result
+if (matches5) {
+    console.log(`Match: ${matches5[0]}`);       // Output -> Match: It
+} else {
+    console.log('No match found');
+}
