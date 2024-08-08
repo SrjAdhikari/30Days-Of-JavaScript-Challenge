@@ -188,3 +188,32 @@ if (matches6) {
 } else {
     console.log('No match found');
 }
+
+
+//* **************************************************************
+//* Activity 5: Practical Applications
+//* **************************************************************
+
+//* Task 9: Write a regular expression to validate a simple password (must include at least one uppercase letter, one lowercase letter, one digit, and one special character). Log whether the password is valid.
+
+// Define the password to validate
+const password = "A1b@1234";
+
+// Define the regular expression to validate the password
+//? (?=.*[a-z]) ensures at least one lowercase letter
+//? (?=.*[A-Z]) ensures at least one uppercase letter
+//? (?=.*\d) ensures at least one digit
+//? (?=.*[@$!%*?&]) ensures at least one special character from the set
+//? [A-Za-z\d@$!%*?&]{8,} ensures the password consists of valid characters (letters, digits, and special characters) and is at least 8 characters long.
+//? ^ and $ assert the position at the start and end of the string, ensuring the entire string is validated.
+const regex7 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+// Use the test() method to validate the password
+const isValid = regex7.test(password);
+
+// Log whether the password is valid
+if (isValid) {
+    console.log('Password is valid');
+} else {
+    console.log('Password is invalid');
+}
