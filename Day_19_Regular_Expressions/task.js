@@ -166,3 +166,25 @@ if (matches5) {
 } else {
     console.log('No match found');
 }
+
+
+//* Task 8: Write a regular expression to match a word only if it is at the end of a string. Log the matches.
+
+// Define the text to search within
+const text6 = "It is day 19 of 30 days JavaScript Challenge";
+
+// Define the regular expression to match a word at the end of the string
+//? $ asserts the position at the end of the string, ensuring the match is at the end.
+//? \b matches a word boundary, ensuring the match is a complete word.
+//? \w+ matches one or more word characters (letters, digits, or underscores).
+const regex6 = /\b\w+$/;
+
+// Use the match() method to find the match at the end of the string
+const matches6 = text6.match(regex6);
+
+// Check if a match is found and log the result
+if (matches6) {
+    console.log(`Match: ${matches6[0]}`);       // Output -> Match: Challenge
+} else {
+    console.log('No match found');
+}
