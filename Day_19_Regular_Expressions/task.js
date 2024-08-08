@@ -71,3 +71,43 @@ const text2 = "The flight numbers are 1234, 567, and 89012. Contact us at 42.";
 const regex2 = /\d+/g;
 const matches2 = text2.match(regex2);
 console.log(matches2);      // Output -> [ '1234', '567', '89012', '42' ]
+
+
+//* **************************************************************
+//* Activity 3: Grouping and Capturing
+//* **************************************************************
+
+//* Task 5: Write a regular expression to capture the area code, central office code, and line number from a US phone number format (e.g., (123) 456-7890). Log the captures.
+
+// Define the text containing the phone number
+const text3 = "(123) 456-7890";
+
+// Define the regular expression to capture area code, central office code, and line number
+//? \((\d{3})\) matches and captures the area code:
+    //? \( matches the literal opening parenthesis.
+    //? (\d{3}) captures three digits inside the parentheses.
+    //? \) matches the literal closing parenthesis.
+//? \s matches the space after the closing parenthesis.
+//? (\d{3}) captures the central office code, which is three digits.
+//? -(\d{4}) captures the line number, which is four digits after a hyphen.
+//? g is the global flag to find all matches in the string.
+const regex3 = /\((\d{3})\)\s(\d{3})-(\d{4})/;
+
+// Use the match() method to find matches and capture groups
+const matches3 = text3.match(regex3);
+
+// Check if matches are found and log the results
+if (matches3) {
+    console.log(`Full match: ${matches3[0]}`);              // matches3[0] is the full match
+    console.log(`Area code: ${matches3[1]}`);               // matches3[1] is the area code
+    console.log(`Central office code: ${matches3[2]}`);     // matches3[2] is the central office code
+    console.log(`Line number: ${matches3[3]}`);             // matches3[3] is the line number
+} else {
+    console.log('No matches found');
+}
+
+//? Output:
+// Full match: (123) 456-7890
+// Area code: 123
+// Central office code: 456
+// Line number: 7890
