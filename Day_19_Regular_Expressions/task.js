@@ -111,3 +111,32 @@ if (matches3) {
 // Area code: 123
 // Central office code: 456
 // Line number: 7890
+
+
+//* Task 6: Write a regular expression to capture the username and domain from an email address. Log the captures.
+
+// Define the text containing the email address
+const text4 = "Contact me at user@example.com for more information.";
+
+// Define the regular expression to capture the username and domain from an email address
+//? (\w+) captures the username part
+//? @ matches the literal @ symbol
+//? ([\w\.]+) captures the domain, allowing for multiple subdomains and a top-level domain. 
+const regex4 = /(\w+)@([\w\.]+)/;
+
+// Use the match() method to find and capture the username and domain
+const matches4 = text4.match(regex4);
+
+// Check if matches are found and log the results
+if (matches4) {
+    console.log(`Full match: ${matches4[0]}`);      // matches4[0] is the full match
+    console.log(`Username: ${matches4[1]}`);        // matches4[1] is the username
+    console.log(`Domain: ${matches4[2]}`);          // matches4[2] is the domain
+} else {
+    console.log('No matches found');
+}
+
+//? Output:
+// Full match: user@example.com
+// Username: user
+// Domain: example.com
