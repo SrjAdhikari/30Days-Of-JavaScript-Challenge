@@ -63,3 +63,11 @@ const matchWord = expression.match(regExp);
 
 // Log the array of matches to the console
 console.log(matchWord);     // Output -> [ 'This', 'Days', 'JavaScript', 'Challenge' ]
+
+
+//* Task 4: Write a regular expression to match all sequences of one or more digits in a string. Log the matches.
+
+const text2 = "The flight numbers are 1234, 567, and 89012. Contact us at 42.";
+const regex2 = /\d+/g;
+const matches2 = text2.match(regex2);
+console.log(matches2);      // Output -> [ '1234', '567', '89012', '42' ]
