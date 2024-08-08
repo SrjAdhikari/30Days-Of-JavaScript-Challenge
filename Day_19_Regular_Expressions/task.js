@@ -217,3 +217,31 @@ if (isValid) {
 } else {
     console.log('Password is invalid');
 }
+
+
+//* Task 10: Write a regular expression to validate a URL. Log whether the the URL is valid.
+
+// Define the URL to validate
+const url = "https://www.example.com/path?query=123#fragment";
+
+// Define the regular expression to validate a URL. This regex checks for common URL patterns
+//? ^(https?:\/\/)? optionally matches the protocol (http:// or https://).
+//? (www\.)? optionally matches the www. part.
+//? ([a-zA-Z0-9_-]+\.)+ matches one or more domain parts with optional dots (e.g., example.).
+//? [a-zA-Z]{2,6} matches the top-level domain (e.g., .com), which must be between 2 and 6 letters long.
+//? (\:[0-9]{1,5})? optionally matches a port number (e.g., :8080).
+//? (\/[a-zA-Z0-9_\-\.]*)* optionally matches the path of the URL.
+//? (\?[a-zA-Z0-9_\-=&]*)? optionally matches the query string.
+//? (\#[a-zA-Z0-9_\-]*)? optionally matches the fragment.
+const regex8 = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,6}(\:[0-9]{1,5})?(\/[a-zA-Z0-9_\-\.]*)*(\?[a-zA-Z0-9_\-=&]*)?(#[a-zA-Z0-9_\-]*)?$/;
+// const regex8 = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\/?]?.*)$/;  <- Basic Validation
+
+// Use the test() method to validate the URL
+const isValid2 = regex8.test(url);
+
+// Log whether the URL is valid
+if (isValid2) {
+    console.log('URL is valid');
+} else {
+    console.log('URL is invalid');
+}
