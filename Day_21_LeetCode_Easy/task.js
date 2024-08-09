@@ -342,3 +342,14 @@
     console.log(isValid("[]{}()"));         // True - All types of brackets properly matched and nested.
     console.log(isValid("((([])))"));       // True - Properly nested and matched brackets.
     console.log(isValid("{[}"));            // False - Unmatched brackets with incorrect order.
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Solve common LeetCode problems.
+//* • Apply problem-solving skills to implement algorithms.
+//* • Understand and handle edge cases in algorithmic solutions.
+//* • Gain confidence in solving easy-level coding challenges on LeetCode.
