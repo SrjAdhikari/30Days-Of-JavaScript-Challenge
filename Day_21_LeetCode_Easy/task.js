@@ -182,3 +182,107 @@
     console.log(`Is palindrome : ${isPalindrome(121)}`);        // Output -> Is palindrome : true   
     console.log(`Is palindrome : ${isPalindrome(-121)}`);       // Output -> Is palindrome : false
     console.log(`Is palindrome : ${isPalindrome(1212)}`);       // Output -> Is palindrome : false
+
+
+//* **************************************************************
+//* Activity 4: Merge Two Sorted Lists
+//* **************************************************************
+
+//* Task 4: Solve the "Merge Two Sorted Lists problem on LeetCode.
+    //? Write a function that takes two sorted linked lists and returns a new sorted list by merging them.
+    //? Create a few test cases with linked lists and log the merged list.
+    class ListNode {
+        // Creates a new ListNode.
+        // value - The value to store in the node.
+        // next - The next node in the linked list (default is null).
+        constructor(value, next = null) {
+            this.value = value;     // The value of the current node
+            this.next = next;       // The pointer to the next node in the linked list
+        }
+    }
+
+    // Function to converts an array to a linked list.
+    // array - An array of numbers to be converted.
+    const createList = (array) => {
+        let dummy = new ListNode();     // Dummy node to simplify list creation
+        let current = dummy;            // Pointer to build the new list
+
+        // Iterate over each element in the array
+        for (let value of array) {
+            // Create a new node with the current value and append it to the list
+            current.next = new ListNode(value);
+            // Move the pointer to the newly created node
+            current = current.next;
+        }
+
+        // Return the head of the new list, which is the node after the dummy node
+        return dummy.next;
+    }
+
+    // Function to merges two sorted linked lists into one sorted linked list.
+    // l1 - The head node of the first sorted linked list.
+    // l2 - The head node of the second sorted linked list.
+    const mergeTwoLists = (l1, l2) => {
+        let dummy = new ListNode();     // Dummy node to simplify merging
+        let current = dummy;            // Pointer to build the merged list
+
+        // Iterate while both lists have nodes
+        while (l1 !== null && l2 !== null) {
+            // Compare the current nodes of both lists
+            if (l1.value < l2.value) {
+                current.next = l1;      // Attach the node from l1 to the merged list
+                l1 = l1.next;           // Move to the next node in l1
+            } else {
+                current.next = l2;      // Attach the node from l2 to the merged list
+                l2 = l2.next;           // Move to the next node in l2
+            }
+            current = current.next;     // Move the pointer to the newly added node
+        }
+
+        // If there are remaining nodes in l1, append them to the merged list
+        if (l1 !== null) {
+            current.next = l1;
+        }
+
+        // If there are remaining nodes in l2, append them to the merged list
+        if (l2 !== null) {
+            current.next = l2;
+        }
+
+        // Return the head of the merged list, which is the node after the dummy node
+        return dummy.next;
+    };
+
+    // Functiion to prints the linked list.
+    // head - The head node of the linked list.
+    const printList = (head) => {
+        let current = head;     // Pointer to traverse the list
+        let result = [];        // Array to collect the values of the nodes
+
+        // Traverse the linked list and collect values
+        while (current !== null) {
+            result.push(current.value);     // Add the value of the current node to the array
+            current = current.next;         // Move to the next node
+        }
+
+        // Print the values in a readable format
+        console.log(result.join(' -> '));
+    }
+
+    let l1 = createList([1, 3, 5]);
+    let l2 = createList([2, 4, 6]);
+    let mergedList = mergeTwoLists(l1, l2);
+    console.log("Merged List 1:");
+    printList(mergedList);                      // Output: 1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+    l1 = createList([1, 2, 3]);
+    l2 = createList([0]);
+    mergedList = mergeTwoLists(l1, l2);
+    console.log("Merged List 2:");
+    printList(mergedList);                      // Output: 0 -> 1 -> 2 -> 3
+
+    l1 = createList([]);
+    l2 = createList([1, 2, 3]);
+    mergedList = mergeTwoLists(l1, l2);
+    console.log("Merged List 3:");
+    printList(mergedList);                      // Output: 1 -> 2 -> 3
