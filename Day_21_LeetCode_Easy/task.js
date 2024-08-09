@@ -80,3 +80,53 @@
     const numbers3 = [1, 5, 3, 7];
     const target6 = 10;
     console.log(`Indices :`, findTwoSumIndices(numbers3, target6));    // Output: [1, 3]
+
+
+//* Task 2: Solve the "Reverse Integer problem on LeetCode.
+    //? Write a function that takes an integer and returns it with its digits reversed.
+    //? Handle edge cases like negative numbers and numbers ending in zero.
+    //? Log the reversed integers for a few test cases.
+
+    // Function that takes an integer as input and returns its digits reversed.
+    const reverseInteger = (number) => {
+        // Check if the number is negative
+        const isNegative = number < 0;
+        
+        // Convert the number to its absolute value to handle the reversal without the negative sign
+        number = Math.abs(number);
+        
+        // Initialize an empty string to build the reversed number
+        let reversedStr = "";
+        
+        // Special case: if the number is 0, directly return 0
+        if (number === 0) {
+            return 0;
+        }
+        
+        // Loop to extract digits and build the reversed string
+        while (number !== 0) {
+            // Get the last digit of the number
+            let lastDigit = number % 10;
+            
+            // Append the last digit to the reversed string
+            reversedStr += lastDigit;
+            
+            // Remove the last digit from the number
+            number = Math.floor(number / 10);
+        }
+        
+        // Convert the reversed string to a number
+        let reversedNum = parseInt(reversedStr);
+        
+        // Apply the negative sign if the original number was negative
+        if (isNegative) {
+            reversedNum = -reversedNum;
+        }
+        
+        // Return the reversed number
+        return reversedNum;
+    }
+
+    console.log(`Reversed Integer : ${reverseInteger(1234)}`);      // Output -> Reversed Integer : 4321
+    console.log(`Reversed Integer : ${reverseInteger(-135)}`);      // Output -> Reversed Integer : -531         
+    console.log(`Reversed Integer : ${reverseInteger(0)}`);         // Output -> Reversed Integer : 0
