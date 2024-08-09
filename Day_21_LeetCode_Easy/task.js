@@ -82,6 +82,10 @@
     console.log(`Indices :`, findTwoSumIndices(numbers3, target6));    // Output: [1, 3]
 
 
+//* **************************************************************
+//* Activity 2: Reverse Integer
+//* **************************************************************
+
 //* Task 2: Solve the "Reverse Integer problem on LeetCode.
     //? Write a function that takes an integer and returns it with its digits reversed.
     //? Handle edge cases like negative numbers and numbers ending in zero.
@@ -130,3 +134,51 @@
     console.log(`Reversed Integer : ${reverseInteger(1234)}`);      // Output -> Reversed Integer : 4321
     console.log(`Reversed Integer : ${reverseInteger(-135)}`);      // Output -> Reversed Integer : -531         
     console.log(`Reversed Integer : ${reverseInteger(0)}`);         // Output -> Reversed Integer : 0
+
+
+//* **************************************************************
+//* Activity 3: Palindrome Number
+//* **************************************************************
+
+//* Task 3: Solve the "Palindrome Number" problem on LeetCode.
+    //? Write a function that takes an integer and returns true if it i t is a palindrome, and false otherwise.
+    //? Log the result for a few test cases, including edge cases like negative numbers.
+
+
+    // Function that checks if a given integer is a palindrome.
+    const isPalindrome = (num) => {
+        // Check if the number is negative
+        // Negative numbers cannot be palindromes due to the negative sign
+        if (num < 0) {
+            return false;
+        }
+
+        // Convert the number to its string representation
+        // This allows easy comparison of individual digits
+        const numStr = num.toString();
+
+        // Initialize pointers for the start and end of the string
+        let start = 0;
+        let end = numStr.length - 1;
+
+        // Compare characters from the start and end of the string
+        // Move towards the center of the string from both ends
+        while (start < end) {
+            // If characters at the start and end positions do not match
+            // The number is not a palindrome
+            if (numStr[start] !== numStr[end]) {
+                return false; // Exit the function early
+            }
+            // Move the start pointer one position to the right
+            // Move the end pointer one position to the left
+            start++;
+            end--;
+        }
+
+        // If all character comparisons matched, the number is a palindrome
+        return true;
+    };
+
+    console.log(`Is palindrome : ${isPalindrome(121)}`);        // Output -> Is palindrome : true   
+    console.log(`Is palindrome : ${isPalindrome(-121)}`);       // Output -> Is palindrome : false
+    console.log(`Is palindrome : ${isPalindrome(1212)}`);       // Output -> Is palindrome : false
