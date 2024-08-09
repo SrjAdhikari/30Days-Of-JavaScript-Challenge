@@ -286,3 +286,59 @@
     mergedList = mergeTwoLists(l1, l2);
     console.log("Merged List 3:");
     printList(mergedList);                      // Output: 1 -> 2 -> 3
+
+
+//* **************************************************************
+//* Activity 5: Valid Parentheses
+//* **************************************************************
+
+//* Task 5: Solve the 'Valid Parentheses problem on LeetCode.
+    //? Write a function that takes a string containing just the characters '(' ')', '[' ']', '{' and '}', and determines if the input string is valid.
+    //? A string is valid if open brackets are closed in the correct order.
+    //? Log the result for a few test cases.
+
+    // Functiion that determines if the input string has valid bracket nesting and matching.
+    // A string is valid if every opening bracket has a corresponding closing bracket in the correct order.
+    const isValid = (str) => {
+        // Stack to keep track of unmatched opening brackets
+        const stack = [];
+
+        // Map to hold matching pairs of brackets
+        const bracketMap = {
+            '(': ')',       // Matches opening parenthesis with closing parenthesis
+            '{': '}',       // Matches opening curly brace with closing curly brace
+            '[': ']'        // Matches opening square bracket with closing square bracket
+        };
+
+        // Iterate through each character in the input string
+        for (let char of str) {
+            // If the character is an opening bracket, push it onto the stack
+            if (bracketMap[char]) {
+                stack.push(char);
+            } 
+            // If the character is a closing bracket, check if it matches the top of the stack
+            else {
+                const lastOpenBracket = stack.pop();    // Get the most recent unmatched opening bracket
+
+                // Check if the closing bracket matches the last unmatched opening bracket
+                if (char !== bracketMap[lastOpenBracket]) {
+                    return false;                       // Return false if there is no match
+                }
+            }
+        }
+
+        // Return true if all opening brackets were matched and the stack is empty
+        // Return false if there are unmatched opening brackets remaining
+        return stack.length === 0;
+    }
+
+    console.log(isValid("{[]}"));           // True - All brackets are properly nested and closed.
+    console.log(isValid("({[()]})"));       // True - Properly nested and matched brackets.
+    console.log(isValid("{[(])}"));         // False - Incorrect nesting of brackets.
+    console.log(isValid("(((("));           // False - Unmatched opening brackets.
+    console.log(isValid("(()))("));         // False - Mixed unmatched opening and closing brackets.
+    console.log(isValid(""));               // True - An empty string is considered valid.
+    console.log(isValid("{{}}"));           // True - Properly matched and nested brackets.
+    console.log(isValid("[]{}()"));         // True - All types of brackets properly matched and nested.
+    console.log(isValid("((([])))"));       // True - Properly nested and matched brackets.
+    console.log(isValid("{[}"));            // False - Unmatched brackets with incorrect order.
