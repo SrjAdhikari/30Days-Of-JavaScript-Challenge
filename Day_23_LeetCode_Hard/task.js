@@ -382,3 +382,14 @@
         wordDict: new Set(["hot", "dot", "dog", "lot", "log"])
     };
     console.log(ladderLength(test2.beginWord, test2.endWord, test2.wordDict));
+
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Solve complex LeetCode problems.
+//* • Apply advanced problem-solving skills to implement efficient algorithms.
+//* • Understand and handle edge cases in hard algorithmic solutions.
+//* • Gain confidence in solving hard-level coding challenges on LeetCode.
