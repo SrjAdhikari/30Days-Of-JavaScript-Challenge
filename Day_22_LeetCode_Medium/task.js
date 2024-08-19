@@ -96,3 +96,46 @@
     l2 = createLinkedList([9, 9, 9, 9]);            // Represents the number 9999
     sumList = addTwoNums(l1, l2);                   // Should represent the number 10009998 (8 -> 9 -> 9 -> 9 -> 0 -> 0 -> 0 -> 1)
     printLinkedList(sumList);                       // Output -> [8, 9, 9, 9, 0, 0, 0, 1]
+
+
+//* **************************************************************
+//* Activity 2: Longest Substring Without Repeating Characters
+//* **************************************************************
+
+//* Task 2: Solve the "Longest Substring Without Repeating Characters' problem on LeetCode.
+    //? Write a function that takes a string and returns the length of the longest substring without repeating characters.
+    //? Log the length for a few test cases, including edge cases.
+
+    // Function to find the length of the longest substring without repeating characters.
+    function lengthOfLongestSubstring (str) {
+        // HashMap to store the last index of each character
+        let charIndexMap = new Map();
+        let maxLength = 0;  // To store the maximum length found
+        let start = 0;      // Start index of the current substring
+
+        for(let end = 0; end < str.length; end++){
+            let currChar = str[end];
+
+            // If the character is already in the map, move the start to the right of the previous index of this character
+            if(charIndexMap.has(currChar)) {
+                start = Math.max(charIndexMap.get(currChar) + 1, start);
+            }
+
+            // Update the maximum length found so far
+            maxLength = Math.max(maxLength, end- start + 1);
+
+            // Update the last index of the current character
+            charIndexMap.set(currChar, end);
+        }
+
+        return maxLength;
+    }
+
+    // Test Cases
+    console.log(lengthOfLongestSubstring("abcabcbb"));  // Output -> 3 (substring "abc")
+    console.log(lengthOfLongestSubstring("bbbbb"));     // Output -> 1 (substring "b")
+    console.log(lengthOfLongestSubstring("pwwkew"));    // Output -> 3 (substring "wke")
+    console.log(lengthOfLongestSubstring(""));          // Output -> 0 (empty string)
+    console.log(lengthOfLongestSubstring(" "));         // Output -> 1 (substring " ")
+    console.log(lengthOfLongestSubstring("dvdf"));      // Output -> 3 (substring "vdf")
+    console.log(lengthOfLongestSubstring("anviaj"));    // Output -> 5 (substring "nviaj")
