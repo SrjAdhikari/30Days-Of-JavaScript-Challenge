@@ -139,3 +139,51 @@
     console.log(lengthOfLongestSubstring(" "));         // Output -> 1 (substring " ")
     console.log(lengthOfLongestSubstring("dvdf"));      // Output -> 3 (substring "vdf")
     console.log(lengthOfLongestSubstring("anviaj"));    // Output -> 5 (substring "nviaj")
+
+
+//* **************************************************************
+//* Activity 3: Container With Most Water
+//* **************************************************************
+
+//* Task 3: Solve the "Container With Most Water" problem on LeetCode.
+    //? Write a function that takes an array of non-negative integers where each integer represents the height of a line drawn at each point. Find two lines that together with the x-axis form a container, such that the container holds the most water.
+    //? Log the maximum amount of water for a few test cases.
+
+    // Function to find the maximum amount of water that can be contained between two lines.
+    // height - An array of non-negative integers representing the height of lines.
+    function maxArea(height) {
+        let left = 0;                       // Pointer to the leftmost line
+        let right = height.length - 1;      // Pointer to the rightmost line
+        let maxWater = 0;                   // To store the maximum amount of water found
+
+        // Use two pointers to traverse the array from both ends
+        while(left < right) {
+            // Calculate the width between the two lines
+            const width = right - left;
+
+            // Find the height of the shorter line
+            const currHeight = Math.min(height[left], height[right]);
+
+            // Calculate the current water area and update the maximum if it's greater
+            const currWater = width * currHeight;
+
+            // Update maxWater if the current container holds more water
+            maxWater = Math.max(maxWater, currWater);
+
+            // Move the pointer pointing to the shorter line inward, hoping to find a taller line
+            if(height[left] < height[right]) {
+                left++;
+            }
+            else {
+                right--;
+            }
+        }
+        return maxWater;
+    }
+
+    // Test Cases
+    console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));  // Output -> 49
+    console.log(maxArea([1, 1]));                       // Output -> 1
+    console.log(maxArea([4, 3, 2, 1, 4]));              // Output -> 16
+    console.log(maxArea([1, 2, 1]));                    // Output -> 2
+    console.log(maxArea([2, 3, 10, 5, 7, 8, 9]));       // Output -> 36
