@@ -187,3 +187,66 @@
     console.log(maxArea([4, 3, 2, 1, 4]));              // Output -> 16
     console.log(maxArea([1, 2, 1]));                    // Output -> 2
     console.log(maxArea([2, 3, 10, 5, 7, 8, 9]));       // Output -> 36
+
+
+//* **************************************************************
+//* Activity 4: 3Sum
+//* **************************************************************
+
+//* Task 4: Solve the 3Sum problem on LeetCode.
+    //? Write a function that takes an array of integers and finds all unique triplets in the array which give the sum of zero.
+    //? Log the triplets for a few test cases, including edge cases.
+
+    // Function to find all unique triplets in the array that sum up to zero.
+    function threeSum(nums) {
+        // Sort the array to help with finding and avoiding duplicate triplets
+        nums.sort((a, b) => a - b);
+        const triplets = []; // Array to store the result triplets
+
+        // Loop through the array, treating each element as the first element of a potential triplet
+        for(let i = 0; i < nums.length; i++) {
+            // Skip duplicate values for the first element
+            if(i > 0 && nums[i] === nums[i - 1]) continue;
+
+            // Two-pointer approach to find the other two elements of the triplet
+            let left = i + 1;
+            let right = nums.length - 1;
+
+            while(left < right) {
+                const sum = nums[i] + nums[left] + nums[right];
+
+                if(sum === 0) {
+                    // Found a triplet that sums to zero, add it to the result
+                    triplets.push(nums[i], nums[left], nums[right]);
+
+                    // Skip duplicate values for the second elements
+                    while(left < right && nums[left] === nums[left + 1]) left++;
+                    // Skip duplicate values for the third elements
+                    while(left < right && nums[right] === nums[right - 1]) right--;
+
+                    // Move both pointers after finding a valid triplet
+                    left++;
+                    right--;
+                }
+                else if(sum < 0) {
+                    // If the sum is less than zero, move the left pointer to increase the sum
+                    left++;
+                }
+                else {
+                    // If the sum is greater than zero, move the right pointer to decrease the sum
+                    right--;
+                }
+            }
+        }
+
+        return triplets;    // Return the array of unique triplets
+    }
+
+    // Test Cases
+    console.log(threeSum([-1, 0, 1, 2, -1, -4]));       // Output -> [[-1, -1, 2], [-1, 0, 1]]
+    console.log(threeSum([0, 0, 0, 0]));                // Output -> [[0, 0, 0]] (only one unique triplet)
+    console.log(threeSum([-2, 0, 1, 1, 2]));            // Output -> [[-2, 0, 2], [-2, 1, 1]]
+    console.log(threeSum([3, -1, -1, 0, 2, -2]));       // Output -> [[-2, -1, 3], [-2, 0, 2]]
+    console.log(threeSum([1, 2, -2, -1]));              // Output -> [] (no triplet sums to zero)
+    console.log(threeSum([]));                          // Output -> [] (empty array)
+    console.log(threeSum([0]));                         // Output -> [] (no triplet can be formed)
