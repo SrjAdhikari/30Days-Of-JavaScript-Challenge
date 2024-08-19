@@ -314,3 +314,71 @@
 
     const n2 = 3;
     console.log(solveNQueens(n2));
+
+
+//* **************************************************************
+//* Activity 5: Word Ladder
+//* **************************************************************
+
+//* Task 5: Solve the "Word Ladder" problem on 1 LeetCode.
+    //? Write a function that takes a begin word, an end word, and a dictionary of words, and finds the length of the shortest transformation sequence from the begin word to the end word, such that only one letter can be changed at a time and each transformed ward must exist in the word list.
+    //? Log the length of the shortest transformation sequence for a few test cases.
+
+    // Function to find the length of the shortest transformation sequence from beginWord to endWord.
+    //* beginWord - The starting word of the transformation sequence.
+    //* endWord - The target word of the transformation sequence.
+    //* wordDict - A set of words representing the dictionary.
+    
+    function ladderLength(beginWord, endWord, wordDict) {
+        // If the endWord is not present in the dictionary, return 0 since no valid transformation is possible.
+        if (!wordDict.has(endWord)) return 0;
+
+        // Initialize a queue for BFS with the beginWord and its level (starting with level 1).
+        const queue = [[beginWord, 1]];
+        
+        // A set to keep track of visited words to avoid processing the same word multiple times.
+        const visited = new Set();
+        visited.add(beginWord);
+
+        // Perform BFS to find the shortest transformation sequence.
+        while (queue.length > 0) {
+            // Dequeue the current word and its level.
+            const [currentWord, level] = queue.shift();
+
+            // Generate all possible transformations by changing one letter at a time.
+            for (let i = 0; i < currentWord.length; i++) {
+                // Try all possible letters (a-z) for the current position in the word.
+                for (let charCode = 'a'.charCodeAt(0); charCode <= 'z'.charCodeAt(0); charCode++) {
+                    // Form a new word by replacing the current letter with the new letter.
+                    const newChar = String.fromCharCode(charCode);
+                    const newWord = currentWord.slice(0, i) + newChar + currentWord.slice(i + 1);
+
+                    // If the new word matches the endWord, return the current level + 1.
+                    if (newWord === endWord) return level + 1;
+
+                    // If the new word is in the dictionary and has not been visited, add it to the queue.
+                    if (wordDict.has(newWord) && !visited.has(newWord)) {
+                        visited.add(newWord);               // Mark the new word as visited.
+                        queue.push([newWord, level + 1]);   // Add the new word and its level to the queue.
+                    }
+                }
+            }
+        }
+
+        // If no transformation sequence is found, return 0.
+        return 0;
+    }
+
+    const test1 = {
+        beginWord: "hit",
+        endWord: "cog",
+        wordDict: new Set(["hot", "dot", "dog", "cog", "lot", "log"])
+    };
+    console.log(ladderLength(test1.beginWord, test1.endWord, test1.wordDict));
+    
+    const test2 = {
+        beginWord: "hit",
+        endWord: "cog",
+        wordDict: new Set(["hot", "dot", "dog", "lot", "log"])
+    };
+    console.log(ladderLength(test2.beginWord, test2.endWord, test2.wordDict));
