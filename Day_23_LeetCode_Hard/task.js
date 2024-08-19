@@ -68,7 +68,7 @@
     console.log(findMedian([1, 2], [3]));           // Output -> 2      // Explanation: Merged array is [1, 2, 3], median is 2.
     console.log(findMedian([], [1]));               // Output -> 1      // Explanation: Merged array is [1], median is 1.
     console.log(findMedian([], []));                // Output -> NaN    // Explanation: Both arrays are empty, median is undefined.
-    
+
 
 //* **************************************************************
 //* Activity 2: Merge k Sorted Lists
@@ -165,3 +165,80 @@
     const l7 = new ListNode(3);
     const l8 = new ListNode(2);
     printList(mergeKSortedLists([l6, l7, l8]));
+    
+
+//* **************************************************************
+//* Activity 3: Trapping Rain Water
+//* **************************************************************
+
+//* Task 3: Solve the "Trapping Rain Water" problem on LeetCode.
+    //? Write a function that takes an array of non-negative integers representing an elevation map where the width of each bar is 1, and computes how much water it can trap after raining.
+    //? Log the amount of trapped water for a few test cases.
+
+    // Function to compute how much water can be trapped after raining.
+    function trapWater(height) {
+        // Edge case: If the array is empty, no water can be trapped.
+        if (height.length === 0)
+            return 0;
+    
+        // Initialize two pointers: one starting from the left end and one from the right end.
+        let left = 0;
+        let right = height.length - 1;
+    
+        // Initialize variables to track the maximum heights from both ends and total trapped water.
+        let leftMax = 0;            // Maximum height encountered from the left side.
+        let rightMax = 0;           // Maximum height encountered from the right side.
+        let waterTrapped = 0;       // Total amount of water trapped.
+    
+        // Loop until the two pointers meet.
+        while (left < right) {
+            // Compare heights at the left and right pointers to decide which side to process.
+            if (height[left] <= height[right]) {
+                // Process the left side if its height is less than or equal to the right side.
+                // If current height is greater than or equal to leftMax, update leftMax.
+                if (height[left] >= leftMax)
+                    leftMax = height[left];
+                else
+                    // Calculate trapped water at the current position based on the difference between leftMax and the current height.
+                    waterTrapped += leftMax - height[left];
+                
+                // Move the left pointer to the right.
+                left++;
+            } 
+            else {
+                // Process the right side if its height is less than the left side.
+                // If current height is greater than or equal to rightMax, update rightMax.
+                if (height[right] >= rightMax)
+                    rightMax = height[right];
+                else
+                    // Calculate trapped water at the current position based on the difference between rightMax and the current height.
+                    waterTrapped += rightMax - height[right];
+                
+                // Move the right pointer to the left.
+                right--;
+            }
+        }
+    
+        // Return the total amount of trapped water.
+        return waterTrapped;
+    }
+
+    // Test case 1: Typical case with varying heights
+    const heights1 = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
+    console.log('Trapped Water for heights1:', trapWater(heights1));
+
+    // Test case 2: No elevation, so no water can be trapped
+    const heights2 = [0, 0, 0, 0];
+    console.log('Trapped Water for heights2:', trapWater(heights2));
+
+    // Test case 3: Single elevation, so no water can be trapped
+    const heights3 = [4];
+    console.log('Trapped Water for heights3:', trapWater(heights3));
+
+    // Test case 4: Increasing heights, so no water can be trapped
+    const heights4 = [1, 2, 3, 4, 5];
+    console.log('Trapped Water for heights4:', trapWater(heights4));
+
+    // Test case 5: Decreasing heights, so no water can be trapped
+    const heights5 = [5, 4, 3, 2, 1];
+    console.log('Trapped Water for heights5:', trapWater(heights5));
