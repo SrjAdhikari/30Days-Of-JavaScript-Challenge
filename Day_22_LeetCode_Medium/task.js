@@ -322,3 +322,14 @@
     console.log(groupAnagram(["a"]))
     console.log(groupAnagram(["rat", "car", "tar", "arc"]));
     console.log(groupAnagram(["abc", "bca", "cab", "xyz", "zyx"]));
+    
+
+//* **************************************************************
+//* Achievement:
+//* **************************************************************
+
+//* By the end of these activities, you will:
+//* • Solve common medium-level LeetCode problems.
+//* • Apply advanced problem-solving skills to implement algorithms.
+//* • Understand and handle edge cases in more complex algorithmic solutions.
+//* • Gain confidence in solving medium-level coding challenges on LeetCode.
