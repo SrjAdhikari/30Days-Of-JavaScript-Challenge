@@ -250,3 +250,75 @@
     console.log(threeSum([1, 2, -2, -1]));              // Output -> [] (no triplet sums to zero)
     console.log(threeSum([]));                          // Output -> [] (empty array)
     console.log(threeSum([0]));                         // Output -> [] (no triplet can be formed)
+
+
+//* **************************************************************
+//* Activity 5: Group Anagrams
+//* **************************************************************
+
+//* Task 5: Solve the "Group Anagrams" problem on LeetCode.
+    //? Write a function that takes an array of strings and groups anagrams together.
+    //? Log the grouped anagrams for a few test cases.
+
+    //* 1:
+    // Function to group anagrams from an array of strings.
+    function groupAnagrams(strs) {
+        let result = {}; // Create an empty object to store anagram groups
+    
+        // Iterate over each string in the input array
+        for (const str of strs) {
+            // Sort the characters of the string to get a canonical form
+            let sortedStr = str.split("").sort().join("");
+    
+            // If the sorted string is already a key in the result object, add the original string to the array
+            if (result[sortedStr]) {
+                result[sortedStr].push(str);
+            } else {
+                // If the sorted string is not a key, create a new key with an array containing the original string
+                result[sortedStr] = [str];
+            }
+        }
+    
+        // Convert the object values to an array of arrays and return it
+        return Object.values(result);
+    }
+    
+    // Test Cases
+    console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));     // Output -> [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+    console.log(groupAnagrams([""]))                                            // Output -> [['']]
+    console.log(groupAnagrams(["a"]))                                           // Output -> [['a']]
+    console.log(groupAnagrams(["rat", "car", "tar", "arc"]));                   // Output -> [['rat', 'tar'], ['car', 'arc']]
+    console.log(groupAnagrams(["abc", "bca", "cab", "xyz", "zyx"]));            // Output -> [['abc', 'bca', 'cab'], ['xyz', 'zyx']]
+    
+    //* **************************************************************
+
+    //* 2:
+    // Function to group anagrams from an array of strings.
+    function groupAnagram(strs) {
+        // Create a Map to store grouped anagrams
+        const anagramMap = new Map();
+
+        // Iterate through each string in the input array
+        for (const str of strs) {
+            // Sort the characters of the string to get a canonical form
+            const sortedStr = str.split('').sort().join('');
+
+            // If the sorted string is not already a key in the map, add it with an empty array
+            if (!anagramMap.has(sortedStr)) {
+                anagramMap.set(sortedStr, []);
+            }
+
+            // Push the original string into the array corresponding to the sorted key
+            anagramMap.get(sortedStr).push(str);
+        }
+
+        // Convert the map values to an array of arrays
+        return Array.from(anagramMap.values());
+    }
+    
+    // Test Cases
+    console.log(groupAnagram(["eat", "tea", "tan", "ate", "nat", "bat"]));
+    console.log(groupAnagram([""]))
+    console.log(groupAnagram(["a"]))
+    console.log(groupAnagram(["rat", "car", "tar", "arc"]));
+    console.log(groupAnagram(["abc", "bca", "cab", "xyz", "zyx"]));
