@@ -165,7 +165,7 @@
     const l7 = new ListNode(3);
     const l8 = new ListNode(2);
     printList(mergeKSortedLists([l6, l7, l8]));
-    
+
 
 //* **************************************************************
 //* Activity 3: Trapping Rain Water
@@ -242,3 +242,75 @@
     // Test case 5: Decreasing heights, so no water can be trapped
     const heights5 = [5, 4, 3, 2, 1];
     console.log('Trapped Water for heights5:', trapWater(heights5));
+
+
+//* **************************************************************
+//* Activity 4: N-Queens
+//* **************************************************************
+
+//* Task 4: Solve the 'N-Queens' problem on LeetCode.
+    //? Write a function that places n queens on an nen chessboard such that no two queens attack each other, and returns all distinct solutions to the n-queens puzzle.
+    //? Log the distinct solutions for a few test cases.
+
+    // Function to solve the N-Queens problem and return all distinct solutions.
+    function solveNQueens(n) {
+        // Array to store all valid solutions found during the computation.
+        const solutions = [];
+        
+        // Initialize the board as a 2D array of size n x n, filled with '.' representing empty cells.
+        const board = Array.from({ length: n }, () => Array(n).fill('.'));
+
+        // Helper function to check if placing a queen at position (row, col) is valid.
+        function isValid(row, col) {
+            // Check all rows above the current row for conflicts.
+            for (let i = 0; i < row; i++) {
+                // Check if there's another queen in the same column.
+                if (board[i][col] === 'Q') return false;
+
+                // Check if there's another queen in the same main diagonal.
+                if (col - (row - i) >= 0 && board[i][col - (row - i)] === 'Q') return false;
+
+                // Check if there's another queen in the same anti-diagonal.
+                if (col + (row - i) < n && board[i][col + (row - i)] === 'Q') return false;
+            }
+            // If no conflicts are found, return true.
+            return true;
+        }
+
+        // Helper function to solve the problem using backtracking.
+        function backtrack(row) {
+            // Base case: If we've placed queens in all rows, add the current board configuration to solutions.
+            if (row === n) {
+                // Convert the board's rows from arrays to strings and push to solutions.
+                solutions.push(board.map(row => row.join('')));
+                return;
+            }
+
+            // Try placing a queen in each column of the current row.
+            for (let col = 0; col < n; col++) {
+                // Check if placing a queen at (row, col) is valid.
+                if (isValid(row, col)) {
+                    // Place a queen at the current position.
+                    board[row][col] = 'Q';
+
+                    // Recursively place queens in the next row.
+                    backtrack(row + 1);
+
+                    // Backtrack: Remove the queen and try the next column.
+                    board[row][col] = '.';
+                }
+            }
+        }
+
+        // Start backtracking from the first row.
+        backtrack(0);
+        
+        // Return the list of all valid solutions.
+        return solutions;
+    }
+
+    const n1 = 4;
+    console.log(solveNQueens(n1));
+
+    const n2 = 3;
+    console.log(solveNQueens(n2));
