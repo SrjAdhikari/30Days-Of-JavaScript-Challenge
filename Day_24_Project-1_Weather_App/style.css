@@ -1,0 +1,130 @@
+/* Universal reset to remove default margin and padding from all elements */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", serif;
+    box-sizing: border-box;
+}
+
+/* Styling the main container of the app */
+.app-container {
+    width: 50%;             /* Set the container width to 50% of the parent element */
+    max-width: 400px;       /* Maximum width is 400px to maintain layout consistency */
+    color: #fff;
+    background: linear-gradient(150deg, #00feba, #5b548a);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
+    margin: 100px auto 0;   /* Center the container horizontally and add top margin */
+    padding: 30px;          /* Add padding inside the container */
+    text-align: center;     /* Center-align the text inside the container */
+}
+
+/* Styling the main heading inside the container */
+.app-container h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* Styling the search section */
+.search {
+    margin-bottom: 20px;
+}
+
+/* Styling the search input field */
+.search input {
+    border: none;
+    outline: none;
+    width: 65%;
+    padding: 10px; 
+    border-radius: 5px;
+    font-size: 13px;
+    letter-spacing: 0.03rem;
+}
+
+/* Styling the search button */
+.search button {
+    background: #fff;
+    color: #000;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 25%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03rem;
+    margin-left: 5px;
+}
+
+/* Styling the main details section with flexbox */
+.main-details {
+    display: flex;              /* Use flexbox for layout */
+    align-items: center;        /* Vertically align items */
+    justify-content: center;    /* Center items horizontally */
+}
+
+/* Styling the weather icon inside the main details section */
+.weather-icon {
+    width: 100px;               /* Set the icon width to 100px */
+    height: auto;               /* Maintain the aspect ratio of the icon */
+}
+
+/* Styling the main information section */
+.main-info {
+    display: flex;              /* Use flexbox for layout */
+    flex-direction: column;     /* Arrange items vertically */
+    margin: 0 35px 0 55px;      /* Add horizontal margins for spacing */
+}
+
+/* Styling the heading inside the main information section */
+.main-info h2 {
+    font-size: 35px;
+}
+
+/* Styling the paragraph inside the main information section */
+.main-info p {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+/* Styling the temperature information section */
+.temp-info {
+    text-align: left;
+}
+
+/* Styling the span inside the temperature information section */
+.temp-info span {
+    font-size: 11px;
+}
+
+/* Styling the additional information section with flexbox */
+.information {
+    display: flex;                      /* Use flexbox for layout */
+    justify-content: space-between;     /* Distribute space evenly between items */
+    align-items: center;                /* Vertically align items */
+    flex-wrap: wrap;                    /* Allow items to wrap to the next line if necessary */
+    margin-top: 10px;                   /* Add space above the section */
+}
+
+/* Styling individual detail items in the additional information section */
+.details {
+    display: flex;                      /* Use flexbox for layout */
+    align-items: center;                /* Vertically align items */
+    text-align: left;                   /* Align text to the left */
+    margin: 10px;                       /* Add margin around each detail item */
+}
+
+/* Styling the images inside the details section */
+.details img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* Styling the text inside the details section */
+.details div {
+    text-align: left;
+    font-size: 13px;
+}
