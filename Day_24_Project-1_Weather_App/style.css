@@ -11,8 +11,8 @@
     width: 50%;             /* Set the container width to 50% of the parent element */
     max-width: 400px;       /* Maximum width is 400px to maintain layout consistency */
     color: #fff;
-    background: linear-gradient(150deg, #00feba, #5b548a);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #3f7979, #000000);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 
     margin: 100px auto 0;   /* Center the container horizontally and add top margin */
